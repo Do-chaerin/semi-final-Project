@@ -1,5 +1,42 @@
 <script setup>
-import { computed, ref, watch } from "vue";
+import { computed, ref, watch, onMounted } from "vue";
+//스와이프
+const slides = ref([
+  "image/cr/st_notice01.jpg",
+  "image/cr/st_notice02.jpg",
+  "image/cr/st_notice03.jpg",
+]);
+// 📌 무한 루프를 위해 앞뒤에 복제본 추가
+const loopSlides = ref([
+  slides.value[slides.value.length - 1], // 마지막 이미지 (앞쪽)
+  ...slides.value,
+  slides.value[0], // 첫 번째 이미지 (뒷쪽)
+]);
+
+const position = ref(-100); // 처음 시작 위치 (-100%부터 시작)
+const slideWidth = 100;
+const isTransitioning = ref(true);
+
+// 📌 슬라이드 자동 이동
+const moveSlide = () => {
+  position.value -= slideWidth;
+  isTransitioning.value = true;
+
+  setTimeout(() => {
+    if (position.value <= -slideWidth * (loopSlides.value.length - 1)) {
+      // 👇 마지막 이미지에서 첫 번째로 순간 이동
+      position.value = -slideWidth;
+      isTransitioning.value = false;
+    }
+  }, 500); // 0.5초 후 transition 효과 제거
+};
+
+// 📌 3초마다 슬라이드 이동
+onMounted(() => {
+  setInterval(moveSlide, 3000);
+});
+
+//공지사항
 // notice 더미 데이터
 const notices = ref([
   {
@@ -100,61 +137,129 @@ const nextPage = () => {
 </script>
 
 <template>
-  <div class="st_notice-container">
-    <table class="st_notice-table">
-      <thead>
-        <tr>
-          <th>번호</th>
-          <th>제목</th>
-        </tr>
-      </thead>
-      <tbody>
-        <template v-for="(notice, index) in paginatedNotices" :key="index">
-          <!-- 제목 줄 -->
-          <tr @click="toggleNotice(index)" class="st_title-row">
-            <td class="st_number">
-              {{ (currentPage - 1) * itemsPerPage + index + 1 }}
-            </td>
-            <td>
-              {{ notice.title }}
-              <span class="st_toggle-icon">{{
-                activeIndex === index ? "▲" : "▼"
-              }}</span>
-            </td>
+  <div class="st_wrap">
+    <p>공지사항</p>
+    <!-- 스와이프 -->
+    <div class="st_slider-container">
+      <div
+        class="st_slider-wrapper"
+        :style="{
+          transform: `translateX(${position}%)`,
+          transition: isTransitioning ? 'transform 0.5s ease-in-out' : 'none',
+        }">
+        <div
+          v-for="(slide, index) in loopSlides"
+          :key="index"
+          class="st_slider-slide">
+          <img :src="slide" alt="슬라이드 이미지" />
+        </div>
+      </div>
+    </div>
+    <!-- 공지사항 -->
+    <div class="st_notice-container">
+      <table class="st_notice-table">
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
           </tr>
-          <!-- 내용 줄 -->
-          <tr v-if="activeIndex === index" class="st_content-row">
-            <td colspan="2">{{ notice.content }}</td>
-          </tr>
-        </template>
-      </tbody>
-    </table>
-    <!-- 페이지네이션 -->
-    <div class="st_pagination">
-      <button @click="prevPage" :disabled="currentPage === 1"><<</button>
-      <button
-        v-for="page in totalPages"
-        :key="page"
-        @click="currentPage = page"
-        :class="{ active: currentPage === page }">
-        {{ page }}
-      </button>
-      <button @click="nextPage" :disabled="currentPage === totalPages">
-        >>
-      </button>
+        </thead>
+        <tbody>
+          <template v-for="(notice, index) in paginatedNotices" :key="index">
+            <!-- 제목 줄 -->
+            <tr @click="toggleNotice(index)" class="st_title-row">
+              <td class="st_number">
+                {{ (currentPage - 1) * itemsPerPage + index + 1 }}
+              </td>
+              <td>
+                {{ notice.title }}
+                <span class="st_toggle-icon">{{
+                  activeIndex === index ? "▲" : "▼"
+                }}</span>
+              </td>
+            </tr>
+            <!-- 내용 줄 -->
+            <tr v-if="activeIndex === index" class="st_content-row">
+              <td colspan="2">{{ notice.content }}</td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+      <!-- 페이지네이션 -->
+      <div class="st_pagination">
+        <button @click="prevPage" :disabled="currentPage === 1"><<</button>
+        <button
+          v-for="page in totalPages"
+          :key="page"
+          @click="currentPage = page"
+          :class="{ active: currentPage === page }">
+          {{ page }}
+        </button>
+        <button @click="nextPage" :disabled="currentPage === totalPages">
+          >>
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@use "@/assets/Main.scss" as *;
+@use "@/assets/_Variables.scss" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.st_wrap {
+  width: 700px;
+  margin-top: $margin-titletopbottom;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+p {
+  font-size: $title-font-size-m;
+  font-family: $font-family;
+  margin-bottom: $margin-m;
+  padding-left: $padding-sss;
+  border-left: 5px solid $main-color;
+}
+/*슬라이더*/
+.st_slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.st_slider-wrapper {
+  display: flex;
+  will-change: transform;
+}
+.st_slider-slide {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.st_slider-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+/*공지사항*/
 .st_notice-container {
-  max-width: 700px;
-  margin: auto;
-  padding: 20px;
+  max-width: 100%;
+  margin-top: $margin-s;
   text-align: center;
 }
 .st_notice-table {
-  width: 100%;
+  width: 700px;
   border-collapse: collapse;
 }
 th,
