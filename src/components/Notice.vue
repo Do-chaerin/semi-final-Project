@@ -217,14 +217,16 @@ const nextPage = () => {
   margin-top: $margin-titletopbottom;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: $margin-m;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  font-family: $font-family;
 }
 p {
-  font-size: $title-font-size-m;
+  font-size: $title-font-size-s;
   font-family: $font-family;
   margin-bottom: $margin-m;
   padding-left: $padding-sss;
@@ -235,6 +237,7 @@ p {
   width: 100%;
   overflow: hidden;
   position: relative;
+  margin-bottom: $margin-L;
 }
 .st_slider-wrapper {
   display: flex;
@@ -255,7 +258,6 @@ p {
 /*공지사항*/
 .st_notice-container {
   max-width: 100%;
-  margin-top: $margin-s;
   text-align: center;
 }
 .st_notice-table {
