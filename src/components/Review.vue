@@ -61,11 +61,11 @@ const nextPage = () => {
 
 <template>
   <div class="st_wrap">
-    <p>이용후기</p>
+    <p class="st_header">이용후기</p>
 
     <!-- 리뷰 배너 -->
     <div class="st_reviewbanner">
-      <img src="/image/cr/st_reviewbanner.jpg" alt="리뷰이벤트" />
+      <img src="./image/cr/st_reviewbanner.jpg" alt="리뷰이벤트" />
     </div>
 
     <div class="st_bottom">
@@ -84,9 +84,9 @@ const nextPage = () => {
                   <span>{{ tag.name }}</span>
                 </a>
               </div>
-              <h4>
-                ✨{{ maskedName(product.name) }}✨님의<br />이용후기입니다
-              </h4>
+              <h5>
+                ✨{{ maskedName(product.name) }}✨님의<br />이용후기입니다😊
+              </h5>
             </div>
           </div>
         </div>
@@ -110,15 +110,18 @@ const nextPage = () => {
 
 .st_wrap {
   width: 700px;
-  margin: $margin-titletopbottom auto $margin-m;
+  margin-top: $margin-titletopbottom;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: $margin-m;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  font-family: $font-family;
 }
 
-p {
+.st_header {
   font-size: $title-font-size-s;
   font-family: $font-family;
   margin-bottom: $margin-m;
@@ -144,6 +147,7 @@ img {
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  font-family: none;
 }
 
 .st_card {
@@ -155,8 +159,8 @@ img {
 }
 
 .st_card:hover {
-  border: 2px solid #adaeae;
-  box-shadow: 2px 2px #adaeae;
+  border: 2px solid $sub-color;
+  box-shadow: 2px 2px $sub-color;
   transform: scale(1.1);
 }
 
@@ -184,7 +188,7 @@ img {
   text-align: left;
 }
 
-h4 {
+h5 {
   margin-top: 10px;
 }
 
@@ -208,11 +212,12 @@ h4 {
 
 .st_pagination button {
   padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
-  color: white;
-  cursor: pointer;
+  background-color: $sub-color;
+  color: #fff;
 }
 
 .st_pagination button:disabled {

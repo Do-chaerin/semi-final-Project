@@ -138,7 +138,7 @@ const nextPage = () => {
 
 <template>
   <div class="st_wrap">
-    <p>공지사항</p>
+    <p class="st_header">공지사항</p>
     <!-- 스와이프 -->
     <div class="st_slider-container">
       <div
@@ -187,8 +187,9 @@ const nextPage = () => {
       </table>
       <!-- 페이지네이션 -->
       <div class="st_pagination">
-        <button @click="prevPage" :disabled="currentPage === 1"><<</button>
+        <button @click="prevPage" :disabled="currentPage === 1">이전</button>
         <button
+          class="st_number"
           v-for="page in totalPages"
           :key="page"
           @click="currentPage = page"
@@ -196,9 +197,10 @@ const nextPage = () => {
           {{ page }}
         </button>
         <button @click="nextPage" :disabled="currentPage === totalPages">
-          >>
+          다음
         </button>
       </div>
+      
     </div>
   </div>
 </template>
@@ -223,9 +225,8 @@ const nextPage = () => {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-family: $font-family;
 }
-p {
+.st_header {
   font-size: $title-font-size-s;
   font-family: $font-family;
   margin-bottom: $margin-m;
@@ -298,14 +299,19 @@ th {
   align-items: center;
 }
 button {
-  font-family: "Pretendard-Regular";
+  font-family: $font-family;
   padding: 5px 10px;
   margin: 0 5px;
   cursor: pointer;
   border: none;
-  background-color: #fff;
+  border-radius: 5px;
+  background-color: $sub-color;
+  color: #fff;
 }
-
+.st_number {
+  background-color: #fff;
+  color: #000;
+}
 button.active {
   color: #333;
 }
