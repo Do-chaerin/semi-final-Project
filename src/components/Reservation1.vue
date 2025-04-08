@@ -34,8 +34,8 @@ const toggleDetails = (index) => {
     <p class="st_header">예약하기</p>
     <!-- 이미지 영역 -->
     <div class="st_img">
-      <img src="./image/cr/st_reservation01.jpg" alt="사전예약" />
-      <img src="./image/cr/st_reservation02.jpg" alt="일반예약" />
+      <img src="/images/cr/st_reservation01.jpg" alt="사전예약" />
+      <img src="/images/cr/st_reservation02.jpg" alt="일반예약" />
     </div>
 
     <!-- toggle -->

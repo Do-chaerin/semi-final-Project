@@ -2,9 +2,9 @@
 import { computed, ref, watch, onMounted } from "vue";
 //스와이프
 const slides = ref([
-  "image/cr/st_notice01.jpg",
-  "image/cr/st_notice02.jpg",
-  "image/cr/st_notice03.jpg",
+  "/images/cr/st_notice01.jpg",
+  "/images/cr/st_notice02.jpg",
+  "/images/cr/st_notice03.jpg",
 ]);
 // 📌 무한 루프를 위해 앞뒤에 복제본 추가
 const loopSlides = ref([
