@@ -122,7 +122,7 @@ img {
 .st_toggleheader {
   padding: 5px;
   border-radius: 10px;
-  background-color: $imgsub-color;
+  background-color: #b4b4b4;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -137,7 +137,6 @@ img {
 .st_details {
   margin-top: 10px;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
 }
 
 .st_checkbox {
