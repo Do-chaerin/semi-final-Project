@@ -76,7 +76,7 @@
         </div>
       </div>
     </div>
-    <router-link to="/yeyak3">
+    <router-link to="/yeyak4">
       <button class="st_reserve-btn">예약하기</button>
     </router-link>
   </div>
@@ -140,192 +140,216 @@ const formatCurrency = (amount) => {
 @use "@/assets/Main.scss" as *;
 @use "@/assets/_Variables.scss" as *;
 
+// 공통 너비 변수
+$base-width: 350px;
+
 .st_wrap {
-  width: 700px;
-  margin-top: $margin-titletopbottom;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $margin-m;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto $margin-m auto;
+  padding-top: $margin-titletopbottom;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
   font-family: $font-family;
 }
 
 .st_header {
-  text-align: center;
   font-size: $title-font-size-s;
   margin-bottom: $margin-m;
   padding-left: $padding-sss;
   border-left: 5px solid $main-color;
 }
+
 .st_top {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   width: 100%;
   padding: 20px;
   background-color: $background-maincolor;
   border-radius: 20px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-}
-.st_section-title {
   display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 15px auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.st_section-title {
   font-weight: bold;
   font-size: 1.1rem;
+  margin: 15px auto 10px;
+  text-align: center;
 }
-.st_user input {
-  width: 70%;
+
+input,
+select,
+button,
+label {
+  width: 100%;
+  max-width: $base-width;
+  height: 44px;
   padding: 10px;
-  margin: 8px 0;
+  margin: 8px auto;
   border: 1px solid #ccc;
   border-radius: 10px;
+  box-sizing: border-box;
 }
-.st_time {
-  padding: 10px;
-  margin: 8px 0;
-  width: 70%;
+
+.st_user,
+.st_time,
+.st_price,
+.st_size {
+  width: 100%;
+  max-width: $base-width;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .st_date {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  text-align: center;
-  gap: 10px;
-}
-
-.st_time input {
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  display: flex;
-}
-select {
-  padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-
-label {
-  padding: 10px;
-  margin: 8px 0;
-  display: flex;
-  text-align: center;
   justify-content: center;
   align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 100%; // 넓게
+  flex-wrap: wrap; // 화면 작을 때 줄바꿈 허용
+  text-align: center;
 }
+
+.st_date input[type="date"] {
+  flex: 1;
+  max-width: 150px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
 .st_select-time {
   display: flex;
-  gap: 5px;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  justify-content: center;
+  gap: 5px;
+  flex: 2;
+  min-width: 160px;
 }
+
+.st_select-time select {
+  width: 70px;
+  text-align: center;
+  height: 44px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.st_select-time span {
+  font-weight: bold;
+}
+
+.st_start,
+.st_stop {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: $base-width;
+  margin: 10px auto;
+}
+
 .st_place {
-  padding: 10px 15px;
-  margin: 8px 10px;
+  flex: 1;
+  min-width: 60px;
+  padding: 10px;
+  background-color: #fff;
   border: 2px solid #ccc;
   border-radius: 10px;
   cursor: pointer;
-  background-color: #fff;
   transition: all 0.3s ease;
 }
+
 .st_place.active {
   background-color: $sub-color;
   color: #fff;
   border-color: $sub-color;
 }
-.st_price {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 70%;
-}
+
 .st_size {
-  display: flex;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #fff;
   border: 2px solid #ddd;
   border-radius: 10px;
-  padding: 20px;
-  background-color: #fff;
-  margin: 8px 0;
+  margin: 10px 0;
 }
+
 .st_text {
-  display: flex;
-  flex-direction: column;
+  text-align: left;
 }
+
 .st_label {
   font-size: $basic-font-size-L;
 }
+
 .st_tag {
   color: #7b7b7b;
   font-size: $basic-font-size-s;
 }
+
 .st_pm {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.st_counter {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
 }
-.st_price{
-  width: 70%;
-}
-.st_counter,
-.st_price {
-  margin: 5px;
-  padding: 5px;
-}
+
 .st_counter button {
-  padding: 5px 10px;
-  margin: 0 5px;
-  border-radius: 5px;
-  border: none;
-  background-color: $imgsub-color;
-  color: white;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
   font-weight: bold;
-  font-size: 15px;
+  color: white;
+  background-color: $imgsub-color;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
+
 .st_counter button:active {
   background-color: $point-color;
 }
+
 .st_total {
+  width: 100%;
+  max-width: $base-width;
   background-color: #fff;
-  width: 70%;
   border: 2px solid #ddd;
   border-radius: 10px;
   padding: 15px;
-  margin: 10px 0;
+  margin-top: 15px;
   font-size: 1.2rem;
   font-weight: bold;
-  margin-top: 15px;
+  text-align: center;
 }
+
 .st_reserve-btn {
   margin-top: 20px;
-  padding: 12px 30px;
+  width: 150px;
   background-color: $main-color;
   color: white;
+  font-size: 1.1rem;
   border: none;
   border-radius: 10px;
-  font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .st_reserve-btn:hover {
   background-color: $hover;
 }

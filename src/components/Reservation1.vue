@@ -64,10 +64,10 @@ const toggleDetails = (index) => {
       </div>
     </div>
     <div class="st_button">
-      <router-link to="">
+      <router-link to="/yeyak2">
         <button class="st_reser">사전예약</button>
       </router-link>
-      <router-link to="">
+      <router-link to="/yeyak3">
         <button class="st_reser">당일예약</button>
       </router-link>
     </div>
@@ -108,7 +108,7 @@ img {
 }
 .st_toggle {
   width: 100%;
-  margin-bottom: $margin-m;
+  margin-bottom: $margin-L;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -120,7 +120,8 @@ img {
 }
 
 .st_toggleheader {
-  padding: 5px;
+  padding: 10px;
+  margin: 10px;
   border-radius: 10px;
   background-color: #b4b4b4;
   display: flex;
