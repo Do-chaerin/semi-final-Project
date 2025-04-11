@@ -138,7 +138,7 @@ const nextPage = () => {
 
 <template>
   <div class="st_wrap">
-    <p class="st_header">공지사항</p>
+    <p>공지사항</p>
     <!-- 스와이프 -->
     <div class="st_slider-container">
       <div
@@ -200,7 +200,6 @@ const nextPage = () => {
           다음
         </button>
       </div>
-      
     </div>
   </div>
 </template>
@@ -225,8 +224,9 @@ const nextPage = () => {
   align-items: center;
   justify-content: center;
   text-align: center;
+  font-family: $font-family;
 }
-.st_header {
+p {
   font-size: $title-font-size-s;
   font-family: $font-family;
   margin-bottom: $margin-m;

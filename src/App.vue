@@ -1,14 +1,23 @@
-<script setup>
-import { RouterView } from "vue-router";
-</script>
-
 <template>
-  <nav>
-    <router-link to="/">홈</router-link> |
-    <router-link to="/review">소개</router-link>
-    <router-link to="/card">소개</router-link>
-  </nav>
-  <router-view></router-view>
+  <div class="wrap">
+    <Header/>
+    <main class="main">
+      <router-view></router-view>
+
+    </main>
+    <Footer/>
+  </div>
 </template>
 
-<style scoped></style>
+<script setup>
+import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
+</script>
+
+
+<style lang="scss" scoped>
+.main{
+  padding-top: 75px;
+
+}
+</style>

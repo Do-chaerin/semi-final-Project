@@ -65,7 +65,7 @@ const nextPage = () => {
 
     <!-- 리뷰 배너 -->
     <div class="st_reviewbanner">
-      <img src="/images/cr/st_reviewbanner.jpg" alt="리뷰이벤트" />
+      <img src="/image/cr/st_reviewbanner.jpg" alt="리뷰이벤트" />
     </div>
 
     <div class="st_bottom">

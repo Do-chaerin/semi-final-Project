@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- css :: user -->
+    <link rel="stylesheet" href="/assets/css/lib/swiper.min.css" />
+    <link rel="stylesheet" href="/assets/css/user/layout.css?v=20250410" />
+    <link rel="stylesheet" href="/assets/css/user/main.css?v=20250410" />
+    <!-- js :: lib -->
+    <script
+      type="text/javascript"
+      id="www-widgetapi-script"
+      src="https://www.youtube.com/s/player/9599b765/www-widgetapi.vflset/www-widgetapi.js"
+      async=""></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script type="text/javascript" src="/assets/js/lib/swiper.min.js"></script>
+    <script
+      type="text/javascript"
+      src="/assets/js/lib/jquery-1.12.4.js"></script>
+    <script>
+      var _contextPath = "";
+      var _IS_GLOBAL_MASK = true;
+      function fnAjaxMaskStop() {
+        $.unblockUI();
+      }
+      function fnAjaxMaskStart() {
+        $.blockUI({
+          message: '<img src="/images/user/loading.gif"/>',
+          overlayCSS: { background: "transparent" },
+          css: { background: "transparent", border: "none" },
+          baseZ: 99999,
+        });
+      }
+      $(document).ajaxStart(function () {
+        if (_IS_GLOBAL_MASK) {
+          fnAjaxMaskStart();
+        }
+      });
+      $(document).ajaxStop(function () {
+        fnAjaxMaskStop();
+      });
+    </script>
+
+    <meta
+      name="naver-site-verification"
+      content="0ce809e2d508edec6271d9e9416c5fc50c343008" />
+  </head>
+  <body id="cdf">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <!-- e:header -->
+
+    <script type="text/javascript">
+      function fnFestivalBanner(searchFESTV_MONTH_DCD) {
+        $.ajax({
+          type: "post",
+          dataType: "html",
+          url: "/festivalBanner.do",
+          data: {
+            searchFESTV_MONTH_DCD: searchFESTV_MONTH_DCD,
+          },
+          success: function (data) {
+            $("#festivalBanner").html(data);
+            onYouTubeIframeAPIReady();
+          },
+          error: function (error) {
+            return false;
+          },
+        });
+      }
+    </script>
+    <script>
+      $(".pop_wrap").draggable();
+    </script>
+    <div class="container">
+      <div id="festivalBanner">
+        <div class="main-slide-list2">
+          <div class="bb_title1">
+            <!-- 제목 스타일 -->
+            <div class="bb_titleLine"></div>
+            <!-- 제목 -->
+            <div class="title_txt1">
+              <h1>축제안내</h1>
+            </div>
+          </div>
+          <div
+            id="main-swiper"
+            class="swiper mySwiper swiper-container-initialized swiper-container-horizontal">
+            <div
+              class="swiper-wrapper"
+              style="
+                transition-duration: 0ms;
+                transform: translate3d(-4932px, 0px, 0px);
+              ">
+              <!-- <div
+                class="swiper-slide swiper-slide-duplicate"
+                data-swiper-slide-index="10"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#ee2b2b"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#ee2b2b"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#ee2b2b"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#ee2b2b"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#ee2b2b"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        파워풀K-트로트페스티벌
+                        <p></p>
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000174"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.5.17.(토)</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>코오롱야외음악당</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #ee2b2b"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/42711a2a-76c5-4953-a3f0-77950ab1e7e71743579311048_0.jpg);
+                      "></div>
+                  </div>
+                </div>
+              </div> -->
+              <div
+                class="swiper-slide swiper-slide-duplicate"
+                data-swiper-slide-index="11"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#000000"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#000000"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#000000"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#000000"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#000000"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        대구간송미술관 기획전
+                        <p></p>
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000175"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.4 ~</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>대구간송미술관</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #000000"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/a13594a1-98eb-469d-baab-c6d53e36e2721743579366040_0.jpg);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="swiper-slide"
+                data-swiper-slide-index="0"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#ff0000"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#ff0000"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#ff0000"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#ff0000"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#ff0000"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        파워풀대구페스티벌
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000070"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.5.10.(토) ~ 5.11.(일)</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>국채보상로</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #ff0000"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/97790151-2da3-4188-b519-3baff01c87751683677249781_7.jpg);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide swiper-slide-prev"
+                data-swiper-slide-index="1"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#000000"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#000000"></path>
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#000000"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#000000"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#000000"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        대구약령시한방문화축제
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000130"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.5.8.(목) ~ 5.11.(일)</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>약령시 일원</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #000000"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/6855d4f8-8025-429a-a48d-dfc21f7d40451711098287484_4.jpg);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide swiper-slide-active"
+                data-swiper-slide-index="2"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#ffe526"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#ffe526"></path>
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#ffe526"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#ffe526"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#ffe526"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        대구생활문화제
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000040"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.5.10.(토) ~ 5.11.(일)</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>국채보상운동기념공원</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #ffe526"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/e8fb2b5e-bc50-445b-896c-84ff998dbfd81681879881719_7.jpg);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide swiper-slide-next"
+                data-swiper-slide-index="3"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#000000"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#000000"></path>
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#000000"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#000000"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#000000"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        대구 TOP밴드 경연대회
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000041"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.5.10.(토)</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>코오롱야외음악당</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #000000"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/7fcd7a05-ab24-4067-9f99-c5186f0482591682426511606_7.jpg);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide"
+                data-swiper-slide-index="4"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#c43636"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#c43636"></path>
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#c43636"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#c43636"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#c43636"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        동성로청년버스킹
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000065"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.5.15.(목) ~ 5.17.(토)</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>동성로 일원</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #c43636"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/04b98baa-0e69-4382-8a17-538e3e827c481682428995447_3.jpeg);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide"
+                data-swiper-slide-index="5"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#2c3e8c"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#2c3e8c"></path>
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#2c3e8c"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#2c3e8c"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#2c3e8c"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        동성로축제
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000069"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.5.9.(금) ~ 5.11.(일)</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>동성로 일대</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #2c3e8c"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/7eb0b5bf-78da-459d-8a40-ae16d45a190e1711099072640_3.jpg);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide"
+                data-swiper-slide-index="6"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#c33232"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#c33232"></path>
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#c33232"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#c33232"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#c33232"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        장미꽃 필 무렵
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000067"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.5.16.(금) ~ 5.18.(일)</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>이곡장미공원</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #c33232"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/d23b52c0-06d9-45c5-add5-eaaeb09157331711099119948_3.JPG);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+
+              
+
+              <div
+                class="swiper-slide"
+                data-swiper-slide-index="8"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#000000"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#000000"></path>
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#000000"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#000000"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#000000"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        YES!키즈존
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000172"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>
+                            2025.5.10.(토)~11.(일), 2025.5.31.(토)~6.1.(일)
+                          </li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>강정보 디아크 / 국립대구과학관 일원</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #000000"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/feedae96-687c-4f4b-9b79-1b389d4f56ce1743578360217_0.JPG);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide"
+                data-swiper-slide-index="9"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#584aa8"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#584aa8"></path>
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#584aa8"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#584aa8"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#584aa8"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        대구무용제
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000173"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.5.11.(일)</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>대구문화예술회관 팔공홀</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #584aa8"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/9c4c0b01-63a4-4069-a68b-2675b2d769e21743578900209_0.jpg);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+
+              
+
+              <div
+                class="swiper-slide"
+                data-swiper-slide-index="11"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#000000"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#000000"></path>
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#000000"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#000000"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#000000"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        대구간송미술관 기획전
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000175"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.4 ~</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>대구간송미술관</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #000000"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/a13594a1-98eb-469d-baab-c6d53e36e2721743579366040_0.jpg);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="swiper-slide swiper-slide-duplicate"
+                data-swiper-slide-index="0"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#ff0000"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#ff0000"></path>
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#ff0000"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#ff0000"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#ff0000"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        파워풀대구페스티벌
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000070"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.5.10.(토) ~ 5.11.(일)</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>국채보상로</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #ff0000"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/97790151-2da3-4188-b519-3baff01c87751683677249781_7.jpg);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
+                data-swiper-slide-index="1"
+                style="width: 1233px">
+                <div class="slide-wrap">
+                  <div class="left">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40.002"
+                      height="39.998"
+                      viewBox="0 0 40.002 39.998">
+                      <path
+                        id="합치기_22"
+                        data-name="합치기 22"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        fill="#000000"></path>
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="39.998"
+                      height="40.002"
+                      viewBox="0 0 39.998 40.002">
+                      <path
+                        id="합치기_23"
+                        data-name="합치기 23"
+                        d="M0,40V12.666H0A12.665,12.665,0,0,1,12.666,0H40V12.666H12.668V40Z"
+                        transform="translate(0 40.002) rotate(-90)"
+                        fill="#000000"></path>
+                    </svg>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="190"
+                      height="200"
+                      viewBox="0 0 190 200">
+                      <defs>
+                        <clipPath id="clip-path">
+                          <rect
+                            id="사각형_44093"
+                            data-name="사각형 44093"
+                            width="190"
+                            height="200"
+                            transform="translate(903 1099)"
+                            fill="none"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                        <clipPath id="clip-path-2">
+                          <rect
+                            id="사각형_44092"
+                            data-name="사각형 44092"
+                            width="190"
+                            height="200"
+                            transform="translate(-40.175 -26.785)"
+                            fill="#fff"
+                            stroke="#707070"
+                            stroke-width="1"></rect>
+                        </clipPath>
+                      </defs>
+                      <g
+                        id="축제_그래픽"
+                        data-name="축제 그래픽"
+                        transform="translate(-903 -1099)"
+                        clip-path="url(#clip-path)"
+                        opacity="0.1">
+                        <g
+                          id="그룹_52632"
+                          data-name="그룹 52632"
+                          transform="translate(-37.825 -6.713)">
+                          <g
+                            id="작은별_2"
+                            data-name="작은별 2"
+                            transform="translate(981 1132.498)"
+                            clip-path="url(#clip-path-2)">
+                            <g
+                              id="우측_작은별_모임"
+                              data-name="우측 작은별 모임"
+                              transform="translate(-316.758 254.577) rotate(-90)">
+                              <g
+                                id="그룹_52630"
+                                data-name="그룹 52630"
+                                transform="translate(0 0)">
+                                <path
+                                  id="패스_77375"
+                                  data-name="패스 77375"
+                                  d="M13.034,7.534a6.554,6.554,0,1,0-7.46,5.5A6.558,6.558,0,0,0,13.034,7.534Z"
+                                  transform="translate(227.422 330.411)"
+                                  fill="#000000"></path>
+                                <g
+                                  id="그룹_52629"
+                                  data-name="그룹 52629"
+                                  transform="translate(-15.261 213.575)">
+                                  <path
+                                    id="패스_77377"
+                                    data-name="패스 77377"
+                                    d="M20.323,11.739A10.218,10.218,0,1,0,8.7,20.323,10.213,10.213,0,0,0,20.323,11.739Z"
+                                    transform="translate(111.12 109.79)"
+                                    fill="#000000"></path>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                          <g
+                            id="큰행성"
+                            transform="translate(1016.565 1158.053)">
+                            <g id="그룹_52631" data-name="그룹 52631">
+                              <path
+                                id="빼기_30"
+                                data-name="빼기 30"
+                                d="M14496.66,20738.4a47.519,47.519,0,1,1,17.934-3.49A47.483,47.483,0,0,1,14496.66,20738.4Zm13.288-14.021v0a8.979,8.979,0,0,0,4.71,1.279,10.282,10.282,0,0,0,1.968-.191,12.547,12.547,0,0,0,7.274-4.535,35.353,35.353,0,0,0,4.549-7.508c1.371-2.855,2.862-6.17,3.206-9.365a8.965,8.965,0,0,0-3.587-8.662,9.6,9.6,0,0,0-6-2.018c-4.221,0-8.482,2.4-11.313,4.406-2.357,1.664-5.214,4.055-6.383,7.793a16.95,16.95,0,0,0-.619,3.248,8.661,8.661,0,0,0-3.77,4.869,7.792,7.792,0,0,0,.836,6.236,9.493,9.493,0,0,0,4.942,3.936l-.01.01a9.247,9.247,0,0,0,3.168.553c.318,0,.662-.018,1.022-.053Zm-39.86-30.859v0c.177.66.384,1.287.582,1.865a6.408,6.408,0,0,0,.87,2.063,11.269,11.269,0,0,0,3.3,4.189,8.581,8.581,0,0,0,5.238,1.646,13.316,13.316,0,0,0,2.6-.275,11.276,11.276,0,0,0,4.969-2.346,15.7,15.7,0,0,0,3.532-4.266,46.338,46.338,0,0,0,3.231-6.945c1.168-3.2,1.658-5.861,1.417-7.693a10.962,10.962,0,0,0,3.7-3.713,12.315,12.315,0,0,0-.25-12.119,13.045,13.045,0,0,0-5.077-4.881,13.82,13.82,0,0,0-6.482-1.582,15.294,15.294,0,0,0-11.174,4.881,15.853,15.853,0,0,0-1.807,2.385,20.39,20.39,0,0,0-3.649,4.68l-.027.014c-.407.205-.84.426-1.264.662a27.288,27.288,0,0,0-10.333,9.771,7.4,7.4,0,0,0-.291,7.73,9.282,9.282,0,0,0,7.877,4.561,7.571,7.571,0,0,0,3.018-.609l.015-.018Z"
+                                transform="translate(-14449 -20643.082)"
+                                fill="#000000"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+
+                    <div class="slide-info-wrap">
+                      <div class="slide-info-title">
+                        대구약령시한방문화축제
+                        <p></p>
+
+                        <a
+                          href="/festival.do?searchFESTV_MONTH_DCD=CDF018.001&amp;searchFESTV_ID=FESTV_000130"
+                          class="festi-more"
+                          >자세히 보기</a
+                        >
+                      </div>
+                      <div class="slide-info-cont">
+                        <ul>
+                          <li><span>· 개최기간</span></li>
+                          <li>2025.5.8.(목) ~ 5.11.(일)</li>
+                        </ul>
+                        <ul>
+                          <li><span>· 장소</span></li>
+                          <li>약령시 일원</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="left-bg" style="background: #000000"></div>
+                  </div>
+                  <div class="right">
+                    <div
+                      class="right-thumb"
+                      style="
+                        background-image: url(https://gryard-fantasia.s3.ap-northeast-2.amazonaws.com/images/images/2025/04/02/6855d4f8-8025-429a-a48d-dfc21f7d40451711098287484_4.jpg);
+                      "></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-btn-wrap">
+              <div
+                class="swiper-button-prev2"
+                tabindex="0"
+                role="button"
+                aria-label="Previous slide"></div>
+              <div class="swiper-pagination2 swiper-pagination-fraction">
+                <span class="swiper-pagination-current">3</span> /
+                <span class="swiper-pagination-total">12</span>
+              </div>
+              <div
+                class="swiper-button-next2"
+                tabindex="0"
+                role="button"
+                aria-label="Next slide"></div>
+            </div>
+            <span
+              class="swiper-notification"
+              aria-live="assertive"
+              aria-atomic="true"></span>
+          </div>
+
+          <script>
+            var device_w;
+            var winW = $(window).outerWidth();
+
+            var swiper = new Swiper(".mySwiper", {
+              loop: true,
+              autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+              },
+              speed: 2000,
+              loopAdditionalSlides: 1,
+              slidesPerView: 1.6,
+              watchSlidesProgress: true,
+              centeredSlides: true,
+              pagination: {
+                el: ".swiper-pagination2",
+                type: "fraction",
+              },
+              navigation: {
+                nextEl: ".swiper-button-next2",
+                prevEl: ".swiper-button-prev2",
+              },
+              breakpoints: {
+                1700: {
+                  slidesPerView: 1,
+                },
+              },
+            });
+
+            // 스크롤 후 화면 영역에 들어오면 3초뒤 autoplay실행, 영역밖이면 정지, hover시 정지,
+            var isVisible = false;
+            $(function () {
+              swiper.autoplay.stop();
+              $(window).on("scroll", function () {
+                if (!isVisible && checkVisible("#main-swiper", "visible")) {
+                  isVisible = true;
+                  setTimeout(function () {
+                    swiper.autoplay.start();
+                    // setTimeout(function (){
+                    // 	console.log("시간초과")
+                    // 	isVisible = false;
+                    // 	swiper.autoplay.stop();
+                    // }, 60000)
+                  }, 2000);
+                } else if (
+                  isVisible &&
+                  !checkVisible("#main-swiper", "visible")
+                ) {
+                  isVisible = false;
+                  swiper.autoplay.stop();
+                }
+              });
+            });
+            $(".right-thumb").hover(
+              function () {
+                isVisible = false;
+                swiper.autoplay.stop();
+              },
+              function () {
+                isVisible = true;
+                swiper.autoplay.start();
+              }
+            );
+
+            /*youtube iframe*/
+            //youtube API 불러오는 부분
+            var tag = document.createElement("script");
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName("script")[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            //플레이어 변수 설정
+            function onYouTubeIframeAPIReady() {
+              $(document).ready(function () {
+                var swiper = document.getElementById("main-swiper");
+                var slides = swiper.getElementsByClassName("ytSlide");
+                var players = [];
+
+                for (var i = 0; i < slides.length; i++) {
+                  var element =
+                    slides[i].getElementsByClassName("yt-player")[0];
+                  var id = element.getAttribute("data-id");
+
+                  var player = new YT.Player(element, {
+                    videoId: id,
+                    width: "100%",
+                    height: "100%",
+                    playerVars: {
+                      autoplay: 1, //자동재생
+                      loop: 1, //반복 여부
+                      mute: 1,
+                      rel: 0,
+                      showinfo: 0,
+                      modestbranding: 1,
+                      color: "white",
+                      playsinline: 1,
+                      controls: 0, //youtube 콘트롤 표시
+                    },
+                  });
+                  players.push(player);
+                }
+
+                $(".ytSlide .right-thumb").each(function (i) {
+                  $(this).mouseenter(function () {
+                    $(this).children(".player").css({ opacity: "1" });
+                    players[i].playVideo();
+                  });
+                  $(this).mouseleave(function () {
+                    $(this).children(".player").css({ opacity: "0" });
+                    players[i].pauseVideo();
+                  });
+                });
+              });
+            }
+
+            function checkVisible(element, check = "above") {
+              const viewportHeight = $(window).height(); // Viewport Height
+              const scrolltop = $(window).scrollTop(); // Scroll Top
+              const y = $(element).offset().top;
+              const elementHeight = $(element).height();
+
+              // 반드시 요소가 화면에 보여야 할경우
+              if (check == "visible")
+                return (
+                  y < viewportHeight + scrolltop &&
+                  y > scrolltop - elementHeight
+                );
+
+              // 화면에 안보여도 요소가 위에만 있으면 (페이지를 로드할때 스크롤이 밑으로 내려가 요소를 지나쳐 버릴경우)
+              if (check == "above") return y < viewportHeight + scrolltop;
+            }
+          </script>
+        </div>
+      </div>
+
+      <!-- e:main-contents -->
+    </div>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 <template>
   <div class="st_wrap">
-    <p class="st_header">사전예약</p>
+    <p class="st_header">당일예약</p>
     <div class="st_top">
       <p class="st_section-title">예약자 정보</p>
       <div class="st_user">
@@ -76,13 +76,15 @@
         </div>
       </div>
     </div>
-    <router-link to="/yeyak4">
-      <button class="st_reserve-btn">예약하기</button>
-    </router-link>
+    <button class="st_reserve-btn" @click="submitReservation">예약하기</button>
   </div>
 </template>
 
 <script setup>
+import { useReservationStore } from "@/views/yeyak/reservationStore";
+const reservationStore = useReservationStore();
+import { useRouter } from "vue-router";
+const router = useRouter();
 import { ref, computed, reactive } from "vue";
 //출발, 도착장소
 const startPlaces = ["공항", "동대구역", "숙소", "기타"];
@@ -103,25 +105,25 @@ const sizes = reactive([
     label: "S사이즈",
     tag: "기내용 캐리어,소형 배낭 등",
     count: 0,
-    price: 10000,
+    price: 12000,
   },
   {
     label: "M사이즈",
     tag: "화물용 캐리어, 등산 가방 등",
     count: 0,
-    price: 14000,
+    price: 16000,
   },
   {
     label: "L사이즈",
     tag: "대형 캐리어, 배낭, 골프백 등",
     count: 0,
-    price: 16000,
+    price: 18000,
   },
   {
     label: "기타사이즈",
     tag: "기타 물품 및 표시 외 사이즈",
     count: 0,
-    price: 20000,
+    price: 25000,
   },
 ]);
 
@@ -134,6 +136,22 @@ const formatCurrency = (amount) => {
     currency: "KRW", //대한민국 원으로 표시
   }).format(amount); // 숫자를 읽기 쉬운 문자열로 바꿔줌
 };
+// 예약 저장 및 이동
+function submitReservation() {
+  reservationStore.setReservation({
+    name: name.value,
+    phone: phone.value,
+    selectedDate: selectedDate.value,
+    selectedHour: selectedHour.value,
+    selectedMinute: selectedMinute.value,
+    selectedStart: selectedStart.value,
+    selectedStop: selectedStop.value,
+    sizes: sizes.map((item) => ({ ...item })), // 깊은 복사
+    totalPrice: totalPrice.value,
+  });
+
+  router.push("/yeyak4");
+}
 </script>
 
 <style lang="scss" scoped>
