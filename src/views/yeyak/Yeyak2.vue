@@ -60,9 +60,9 @@
               </div>
               <div class="st_pm">
                 <div class="st_counter">
-                  <button @click="item.count++">+</button>
-                  <span>{{ item.count }}</span>
                   <button @click="item.count > 0 && item.count--">-</button>
+                  <span>{{ item.count }}</span>
+                  <button @click="item.count++">+</button>
                 </div>
                 <span class="st_price"
                   >{{ formatCurrency(item.count * item.price) }}원</span
@@ -70,7 +70,8 @@
               </div>
             </div>
             <div class="st_total">
-              총 <strong>{{ formatCurrency(totalPrice) }}원</strong>
+              총 <strong>{{ formatCurrency(totalPrice) }}</strong
+              >원
             </div>
           </div>
         </div>
@@ -78,14 +79,23 @@
     </div>
     <button @click="submitReservation" class="st_reserve-btn">예약하기</button>
   </div>
+
+  <!-- 모달창 -->
+  <div v-if="showModal" class="modal-overlay" @click.self="closeModal">
+    <div class="modal">
+      <h3>예약 안내</h3>
+      <p>장소[기타] · 가방[기타] <br />예약은 가방도와 협의 후 선택해주세요.</p>
+      <button @click="closeModal">확인</button>
+    </div>
+  </div>
 </template>
 
 <script setup>
-import { useReservationStore } from "@/views/yeyak/reservationStore";
+import { useReservationStore } from "../../stores/reservationStore";
 const reservationStore = useReservationStore();
 import { useRouter } from "vue-router";
 const router = useRouter();
-import { ref, computed, reactive } from "vue";
+import { ref, computed, reactive, onMounted } from "vue";
 //출발, 도착장소
 const startPlaces = ["공항", "동대구역", "숙소", "기타"];
 const stopPlaces = ["공항", "동대구역", "숙소", "기타"];
@@ -98,7 +108,16 @@ const selectedMinute = ref("--");
 
 const selectedStart = ref(null);
 const selectedStop = ref(null);
+//모달창
+const showModal = ref(false);
 
+onMounted(() => {
+  showModal.value = true;
+});
+
+const closeModal = () => {
+  showModal.value = false;
+};
 // 사이즈 정보와 가격 정의
 const sizes = reactive([
   {
@@ -181,9 +200,8 @@ $base-width: 350px;
 .st_top {
   width: 100%;
   padding: 20px;
-  background-color: $background-maincolor;
+  background-color: #edfaff;
   border-radius: 20px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -284,9 +302,9 @@ label {
 }
 
 .st_place.active {
-  background-color: $sub-color;
+  background-color: $main-color;
   color: #fff;
-  border-color: $sub-color;
+  border-color: $main-color;
 }
 
 .st_size {
@@ -304,12 +322,13 @@ label {
 }
 
 .st_label {
-  font-size: $basic-font-size-L;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .st_tag {
   color: #7b7b7b;
-  font-size: $basic-font-size-s;
+  font-size: $basic-font-size-m;
 }
 
 .st_pm {
@@ -329,10 +348,13 @@ label {
 .st_counter button {
   width: 32px;
   height: 32px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
-  background-color: $imgsub-color;
+  background-color: #0066b3;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -369,5 +391,46 @@ label {
 
 .st_reserve-btn:hover {
   background-color: $hover;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: white;
+  padding: 24px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.modal p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.modal button {
+  margin-top: 20px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 </style>

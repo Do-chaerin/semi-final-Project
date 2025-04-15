@@ -6,7 +6,7 @@
       <input type="tel" placeholder="연락처" />
       <input type="number" placeholder="예약번호" />
     </div>
-    <button>조회하기</button>
+    <router-link to="/yeyaklookup2"><button>조회하기</button></router-link>
   </div>
 </template>
 <script setup></script>
@@ -45,9 +45,9 @@
   width: 100%;
   max-width: 700px;
   padding: 20px;
-  background-color: $background-maincolor;
+  background-color:#a3e4ff;
   border-radius: 20px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+
 }
 
 input {
