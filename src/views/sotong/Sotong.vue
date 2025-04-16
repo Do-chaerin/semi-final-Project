@@ -162,7 +162,14 @@ const nextPage = () => {
 
 <template>
   <div class="st_wrap">
-    <p>공지사항</p>
+    <div class="st_title1">
+      <!-- 제목 스타일 -->
+      <div class="st_titleLine"></div>
+      <!-- 제목 -->
+      <div class="title_txt1">
+        <h1>공지사항</h1>
+      </div>
+    </div>
     <!-- 스와이프 -->
     <div class="st_slider-container">
       <div
@@ -239,10 +246,7 @@ const nextPage = () => {
 }
 .st_wrap {
   width: 700px;
-  margin-top: $margin-titletopbottom;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $margin-m;
+margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -250,13 +254,24 @@ const nextPage = () => {
   text-align: center;
   font-family: $font-family;
 }
-p {
-  font-size: $title-font-size-s;
-  font-family: $font-family;
-  margin-bottom: $margin-m;
-  padding-left: $padding-sss;
-  border-left: 5px solid $main-color;
+.st_title1 {
+  display: flex;
+  gap: 10px;
+  line-height: 40px;
+  flex-wrap: wrap; /* 넘치면 자동 줄바꿈 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  padding-bottom: 10px;
+  .st_titleLine {
+    width: 3px;
+    height: 25px;
+    background-color: $main-color;
+  }
+  .title_txt1 h1 {
+    font-size: 25px;
+  }
 }
+
 /*슬라이더*/
 .st_slider-container {
   width: 100%;
@@ -343,5 +358,45 @@ button.active {
 button:disabled {
   background: #ccc;
   cursor: not-allowed;
+}
+@media screen and (max-width: 390px) {
+  .st_wrap {
+    width: 100%;
+    margin: 100px auto;
+    padding: 0 10px;
+  }
+
+  .st_notice-table {
+    width: 100%;
+    font-size: 14px;
+
+    th,
+    td {
+      padding: 8px;
+      word-break: break-word;
+    }
+
+    .st_toggle-icon {
+      margin-right: 10px;
+    }
+  }
+
+  .st_slider-container {
+    width: 100%;
+  }
+
+  .st_title1 .title_txt1 h1 {
+    font-size: 20px;
+  }
+
+  .st_pagination {
+    flex-wrap: wrap;
+    gap: 5px;
+
+    button {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+  }
 }
 </style>

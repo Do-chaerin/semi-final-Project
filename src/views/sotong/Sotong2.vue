@@ -213,30 +213,20 @@ const closeModal = () => {
 
 <template>
   <div class="st_wrap">
-    <p class="st_header">이용후기</p>
+    <div class="st_title1">
+      <!-- 제목 스타일 -->
+      <div class="st_titleLine"></div>
+      <!-- 제목 -->
+      <div class="title_txt1">
+        <h1>이용후기</h1>
+      </div>
+    </div>
 
     <!-- 리뷰 배너 -->
     <div class="st_reviewbanner">
       <img src="/images/cr/st_reviewbanner.jpg" alt="리뷰이벤트" />
     </div>
-    <div class="write-btn-wrapper">
-      <!-- 글쓰기 버튼 -->
-      <button @click="showForm = !showForm" class="write-btn">
-        {{ showForm ? "취소" : "글쓰기" }}
-      </button>
 
-      <!-- 글쓰기 폼 -->
-      <form v-if="showForm" class="review-form">
-        <input type="text" v-model="newReview.name" placeholder="이름" />
-        <textarea v-model="newReview.content" placeholder="후기내용"></textarea>
-        <input type="file" @change="handleImageUpload" accept="image/*" />
-        <img v-if="previewImage" :src="previewImage" width="120" />
-        <div class="form-buttons">
-          <button type="button" @click="addReview">등록</button>
-          <button type="button" @click="cancelForm">취소</button>
-        </div>
-      </form>
-    </div>
     <!-- 카드이용후기 -->
     <div class="st_bottom">
       <div class="st_card-container">
@@ -262,7 +252,24 @@ const closeModal = () => {
           </div>
         </div>
       </div>
+      <div class="write-btn-wrapper">
+      <!-- 글쓰기 버튼 -->
+      <button @click="showForm = !showForm" class="write-btn">
+        {{ showForm ? "취소" : "글쓰기" }}
+      </button>
 
+      <!-- 글쓰기 폼 -->
+      <form v-if="showForm" class="review-form">
+        <input type="text" v-model="newReview.name" placeholder="이름" />
+        <textarea v-model="newReview.content" placeholder="후기내용"></textarea>
+        <input type="file" @change="handleImageUpload" accept="image/*" />
+        <img v-if="previewImage" :src="previewImage" width="120" />
+        <div class="form-buttons">
+          <button type="button" @click="addReview">등록</button>
+          <button type="button" @click="cancelForm">취소</button>
+        </div>
+      </form>
+    </div>
       <!-- 페이지네이션 버튼 -->
       <div class="st_pagination">
         <button @click="prevPage" :disabled="currentPage === 1">이전</button>
@@ -292,25 +299,32 @@ const closeModal = () => {
 
 .st_wrap {
   width: 700px;
-  margin-top: $margin-titletopbottom;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: $margin-m;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.st_header {
-  font-size: $title-font-size-s;
   font-family: $font-family;
-  margin-bottom: $margin-m;
-  padding-left: $padding-sss;
-  border-left: 5px solid $main-color;
 }
 
+.st_title1 {
+  display: flex;
+  gap: 10px;
+  line-height: 40px;
+  flex-wrap: wrap; /* 넘치면 자동 줄바꿈 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  padding-bottom: 10px;
+  .st_titleLine {
+    width: 3px;
+    height: 25px;
+    background-color: $main-color;
+  }
+  .title_txt1 h1 {
+    font-size: 25px;
+  }
+}
 // 리뷰 배너
 .st_reviewbanner {
   justify-content: center;
@@ -486,6 +500,68 @@ h5 {
       padding: 8px 16px;
       border-radius: 8px;
       cursor: pointer;
+    }
+  }
+}
+@media (max-width: 390px) {
+  .st_wrap {
+    width: 100%;
+    margin: 100px auto;
+    padding: 0 16px;
+  }
+
+  .st_card-container {
+    width: 100%;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .st_card {
+    width: 45%;
+    height: 260px;
+  }
+
+  .st_card .st_img-product img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .title_txt1 h1 {
+    font-size: 25px;
+  }
+
+  .write-btn {
+    width: 80px;
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .review-form {
+    width: 100%;
+  }
+
+  .review-form input,
+  .review-form textarea {
+    font-size: 14px;
+  }
+
+  .st_pagination {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .modal-content {
+    width: 90%;
+    font-size: 14px;
+
+    img {
+      max-height: 200px;
+      object-fit: contain;
+    }
+
+    button {
+      font-size: 14px;
+      padding: 6px 12px;
     }
   }
 }

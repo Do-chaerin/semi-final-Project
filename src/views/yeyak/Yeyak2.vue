@@ -1,6 +1,13 @@
 <template>
   <div class="st_wrap">
-    <p class="st_header">사전예약</p>
+    <div class="yy_title1">
+      <!-- 제목 스타일 -->
+      <div class="yy_titleLine"></div>
+      <!-- 제목 -->
+      <div class="title_txt1">
+        <h1>사전예약</h1>
+      </div>
+    </div>
     <div class="st_top">
       <p class="st_section-title">예약자 정보</p>
       <div class="st_user">
@@ -166,6 +173,7 @@ function submitReservation() {
     selectedStart: selectedStart.value,
     selectedStop: selectedStop.value,
     sizes: sizes.map((item) => ({ ...item })), // 깊은 복사
+    totalPrice: totalPrice.value,
   });
 
   router.push("/yeyak4");
@@ -182,21 +190,30 @@ $base-width: 350px;
 .st_wrap {
   width: 100%;
   max-width: 700px;
-  margin: 0 auto $margin-m auto;
-  padding-top: $margin-titletopbottom;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: $font-family;
 }
 
-.st_header {
-  font-size: $title-font-size-s;
-  margin-bottom: $margin-m;
-  padding-left: $padding-sss;
-  border-left: 5px solid $main-color;
+.yy_title1 {
+  display: flex;
+  gap: 10px;
+  line-height: 40px;
+  flex-wrap: wrap; /* 넘치면 자동 줄바꿈 */
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  padding-bottom: 10px;
+  .yy_titleLine {
+    width: 3px;
+    height: 25px;
+    background-color: $main-color;
+  }
+  .title_txt1 h1 {
+    font-size: 25px;
+  }
 }
-
 .st_top {
   width: 100%;
   padding: 20px;
