@@ -9,8 +9,6 @@ const reservationStore = useReservationStore();
 <template>
   <div class="st_wrap">
     <div class="yy_title1">
-      <!-- 제목 스타일 -->
-      <div class="yy_titleLine"></div>
       <!-- 제목 -->
       <div class="title_txt1">
         <h1>예약확인</h1>
@@ -70,6 +68,14 @@ const reservationStore = useReservationStore();
         <input type="radio" value="card" v-model="selectedPayment" />
         <span>카드결제</span>
       </label>
+      <label class="credit-option">
+        <input type="radio" value="kakao" v-model="selectedPayment" />
+        <span>카카오페이</span>
+      </label>
+      <label class="credit-option">
+        <input type="radio" value="naver" v-model="selectedPayment" />
+        <span>네이버페이</span>
+      </label>
     </div>
 
     <div v-if="selectedPayment === 'bank'" class="payment-info">
@@ -78,6 +84,16 @@ const reservationStore = useReservationStore();
     </div>
 
     <div v-if="selectedPayment === 'card'" class="payment-info">
+      <h4>카드결제</h4>
+      <p>신용카드 결제는 다음 단계에서 진행됩니다.</p>
+    </div>
+
+    <div v-if="selectedPayment === 'kakao'" class="payment-info">
+      <h4>카드결제</h4>
+      <p>신용카드 결제는 다음 단계에서 진행됩니다.</p>
+    </div>
+
+    <div v-if="selectedPayment === 'naver'" class="payment-info">
       <h4>카드결제</h4>
       <p>신용카드 결제는 다음 단계에서 진행됩니다.</p>
     </div>
@@ -105,25 +121,21 @@ const reservationStore = useReservationStore();
   align-items: center; /* 세로 중앙 정렬 */
   justify-content: center; /* 가로 중앙 정렬 */
   padding-bottom: 10px;
-  .yy_titleLine {
-    width: 3px;
-    height: 25px;
-    background-color: $main-color;
-  }
+
   .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 35px;
   }
 }
 .st_check {
   width: 100%;
   padding: 20px;
-  background-color: #a3e4ff;
   border-radius: 20px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: 1px solid #007bff;
+  box-shadow: $box-shadow;
 }
 .st_table {
   width: 50%;
@@ -145,36 +157,21 @@ const reservationStore = useReservationStore();
 .yy_credit {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin: 15px auto;
+  padding: 20px auto;
+  border: 1px solid #007bff;
+  box-shadow: $box-shadow;
+  width: 100%;
+  border-radius: 20px;
 }
 .credit-option {
+  padding: 15px 10px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-}
-.payment-info {
-  padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  transition: all 0.3s ease;
-}
-
-.credit-option {
-  display: flex;
-  align-items: center;
-  padding: 0.75rem 1.25rem;
-  border: 2px solid #ccc;
-  border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   font-size: 16px;
-  background-color: #f9f9f9;
-}
-
-.credit-option:hover {
-  border-color: #007bff;
+  gap: 0.5rem;
 }
 
 .credit-option input[type="radio"] {
@@ -183,17 +180,22 @@ const reservationStore = useReservationStore();
 
 .credit-option span {
   position: relative;
-  padding-left: 24px;
+  padding-left: 28px; /* 원형 체크박스를 위한 여백 */
+  line-height: 1.5;
+  display: inline-flex;
+  align-items: center; /* span 내부 요소 정렬 */
+  height: 24px; /* 체크 원과 동일한 높이 */
 }
 
 .credit-option span::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 4px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 16px;
   height: 16px;
-  border: 2px solid #aaa;
+  border: 1px solid #aaa;
   border-radius: 50%;
   background-color: #fff;
 }
@@ -206,6 +208,13 @@ const reservationStore = useReservationStore();
 .credit-option input[type="radio"]:checked + span {
   font-weight: bold;
   color: #007bff;
+}
+.payment-info {
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
 }
 
 button {
