@@ -1,6 +1,32 @@
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router"; // ✅ 이 부분 추가!
 
+const router = useRouter();
+//토스트말풍선
+const toastMessage = ref("");
+const toastTargetIndex = ref(null);
+
+const showToast = (message, index) => {
+  toastMessage.value = message;
+  toastTargetIndex.value = index;
+  setTimeout(() => {
+    toastMessage.value = "";
+    toastTargetIndex.value = null;
+  }, 3000);
+};
+
+const goToReservation = (routeName) => {
+  const firstUncheckedIndex = dataUsageList.value.findIndex(
+    (item) => !item.isChecked
+  );
+  if (firstUncheckedIndex !== -1) {
+    showToast("이 항목에 동의해주세요.", firstUncheckedIndex);
+    return;
+  }
+
+  router.push(`/${routeName}`);
+};
 const dataUsageList = ref([
   {
     title: "개인정보이용내역",
@@ -95,6 +121,13 @@ const toggleDetails = (index) => {
         <div v-if="item.isOpen" class="st_details">
           <p class="yy_purpose">{{ item.purpose }}</p>
         </div>
+        <!-- ✅ 여기서 말풍선 메시지를 표시 -->
+        <div
+          v-if="toastTargetIndex === index && toastMessage"
+          class="toast-bubble">
+          {{ toastMessage }}
+        </div>
+        <!-- 체크박스 -->
         <div class="st_checkbox">
           <label>
             {{ item.dataItems }}
@@ -103,13 +136,15 @@ const toggleDetails = (index) => {
         </div>
       </div>
     </div>
+
+    <!-- 링크이동버튼 -->
     <div class="st_button">
-      <router-link to="/yeyak2">
-        <button class="st_reser">사전예약</button>
-      </router-link>
-      <router-link to="/yeyak3">
-        <button class="st_reser">당일예약</button>
-      </router-link>
+      <button class="st_reser" @click="goToReservation('yeyak2')">
+        사전예약
+      </button>
+      <button class="st_reser" @click="goToReservation('yeyak3')">
+        당일예약
+      </button>
     </div>
   </div>
 </template>
@@ -137,13 +172,8 @@ const toggleDetails = (index) => {
   align-items: center; /* 세로 중앙 정렬 */
   justify-content: center; /* 가로 중앙 정렬 */
   padding-bottom: 10px;
-  .yy_titleLine {
-    width: 3px;
-    height: 25px;
-    background-color: $main-color;
-  }
   .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 35px;
   }
 }
 
@@ -156,7 +186,6 @@ img {
 }
 .st_toggle {
   width: 100%;
-  margin-bottom: $margin-L;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -164,14 +193,14 @@ img {
 }
 
 .st_togglemenu {
-  width: 90%;
+  width: 100%;
 }
 
 .st_toggleheader {
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  background-color: #a3e4ff;
+  background-color: #c6eeff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -179,7 +208,7 @@ img {
 }
 
 .st_togglebtn {
-  font-size: 18px;
+  font-size: 13px;
   cursor: pointer;
 }
 .yy_purpose {
@@ -192,6 +221,7 @@ img {
 
 .st_checkbox {
   margin: 10px auto;
+  width: 90%;
 }
 
 .st_checkbox label {
@@ -204,57 +234,130 @@ img {
 .st_checkbox input {
   margin-right: 8px;
 }
-.st_reser {
-  padding: $padding-ss $margin-s;
-  margin: $margin-ss;
-  font-size: $basic-font-size-L;
-  font-family: $font-family;
-  color: #fff;
-  background-color: $main-color;
-  border: none;
-  border-radius: $border-radius-sm;
-  cursor: pointer;
+.toast-bubble {
+  position: relative;
+  background-color: #ff4d4f;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin: 10px auto 0;
+  width: fit-content;
+  max-width: 90%;
+  text-align: center;
+  animation: fadeInOut 3s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
+
+.toast-bubble::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  border-width: 0 8px 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent #ff4d4f transparent;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+.st_button {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.st_reser {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: $main-color;
+  color: white;
+  font-size: 16px;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s;
+  border: none;
+}
+
 .st_reser:hover {
   background-color: $hover;
 }
-@media (max-width: 390px) {
+@media (max-width: 768px) {
   .st_wrap {
-    width: 100%;
-    margin: 100px auto;
-    padding: 0 10px;
+    width: 90%;
+    margin: 50px auto;
   }
 
-  .yy_title1 {
-    gap: 5px;
-    line-height: 30px;
-  }
-
-  .title_txt1 h1 {
+  .yy_title1 .title_txt1 h1 {
     font-size: 25px;
   }
 
-  .st_togglemenu {
+  .st_reser {
     width: 100%;
+    font-size: 16px;
   }
 
   .st_toggleheader {
-    font-size: 14px;
+    font-size: 15px;
     padding: 8px;
   }
 
-  .st_togglebtn {
-    font-size: 16px;
+  .yy_purpose {
+    font-size: 14px;
   }
 
   .st_checkbox label {
     font-size: 14px;
   }
 
+  .st_button {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+  }
+}
+
+@media (max-width: 390px) {
+  .st_wrap {
+    width: 95%;
+    margin: 30px auto;
+  }
+
+  .yy_title1 .title_txt1 h1 {
+    font-size: 25px;
+  }
+
+  .st_toggleheader {
+    font-size: 14px;
+  }
+
+  .yy_purpose {
+    font-size: 13px;
+  }
+
+  .st_checkbox label {
+    font-size: 13px;
+  }
+
   .st_reser {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   img {
@@ -262,5 +365,4 @@ img {
     height: auto;
   }
 }
-
 </style>

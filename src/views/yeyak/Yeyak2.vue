@@ -9,24 +9,27 @@
     <div class="st_top">
       <p class="st_section-title">예약자 정보</p>
       <div class="st_user">
-        <input type="text" placeholder="이름" v-model="name" />
-        <input type="tel" placeholder="전화번호" v-model="phone" />
+        <input type="text" placeholder="이름" v-model="name" required />
+        <input type="tel" placeholder="전화번호" v-model="phone" required />
       </div>
       <div class="st_time">
         <p class="st_section-title">이용 날짜 및 시간</p>
         <div class="st_date">
-          <input type="date" class="st_date" v-model="selectedDate" />
+          <input type="date" class="st_date" v-model="selectedDate" required />
           <div class="st_select-time">
             <select v-model="selectedHour">
               <option>--</option>
-              <option v-for="hour in 24" :key="hour">
+              <option v-for="hour in 24" :key="hour" required>
                 {{ hour === 24 ? "00" : String(hour).padStart(2, "0") }}
               </option>
             </select>
             <span>시</span>
             <select v-model="selectedMinute">
               <option>--</option>
-              <option v-for="minute in [0, 10, 20, 30, 40, 50]" :key="minute">
+              <option
+                v-for="minute in [0, 10, 20, 30, 40, 50]"
+                :key="minute"
+                required>
                 {{ String(minute).padStart(2, "0") }}
               </option>
             </select>
@@ -41,7 +44,8 @@
               :key="'start-' + index"
               class="st_place"
               :class="{ active: selectedStart === place }"
-              @click="selectedStart = place">
+              @click="selectedStart = place"
+              required>
               {{ place }}
             </button>
           </div>
@@ -52,13 +56,18 @@
               :key="'stop-' + index"
               class="st_place"
               :class="{ active: selectedStop === place }"
-              @click="selectedStop = place">
+              @click="selectedStop = place"
+              required>
               {{ place }}
             </button>
           </div>
           <p class="st_section-title">여행가방 종류 및 수량</p>
           <div class="st_price">
-            <div class="st_size" v-for="(item, index) in sizes" :key="index">
+            <div
+              class="st_size"
+              v-for="(item, index) in sizes"
+              :key="index"
+              required>
               <div class="st_text">
                 <p class="st_label">{{ item.label }}</p>
                 <p class="st_tag">{{ item.tag }}</p>
@@ -203,7 +212,6 @@ $base-width: 350px;
   align-items: center; /* 세로 중앙 정렬 */
   justify-content: center; /* 가로 중앙 정렬 */
   padding-bottom: 10px;
-
   .title_txt1 h1 {
     font-size: 35px;
   }
@@ -383,7 +391,7 @@ label {
   border: 1px solid #b5b5b5;
   border-radius: 10px;
   padding: 15px;
-  margin: 15px auto ;
+  margin: 15px auto;
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
@@ -444,5 +452,114 @@ label {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .yy_title1 .title_txt1 h1 {
+    font-size: 25px;
+  }
+
+  .st_top {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .st_label {
+    font-size: 18px;
+  }
+
+  .st_select-time {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .st_place {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .st_size {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .st_pm {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .st_reserve-btn {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+  }
+
+  .modal {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .modal h3 {
+    font-size: 18px;
+  }
+
+  .modal p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 390px) {
+  .yy_title1 .title_txt1 h1 {
+    font-size: 25px;
+  }
+
+  .st_section-title {
+    font-size: 1rem;
+  }
+
+  input,
+  select,
+  button,
+  label {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .st_place {
+    padding: 6px;
+    font-size: 13px;
+  }
+
+  .st_counter button {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .st_reserve-btn {
+    font-size: 0.95rem;
+  }
+
+  .st_total {
+    font-size: 1rem;
+  }
+
+  .modal {
+    padding: 20px;
+  }
+
+  .modal h3 {
+    font-size: 16px;
+  }
+
+  .modal p {
+    font-size: 13px;
+  }
+
+  .modal button {
+    font-size: 14px;
+  }
 }
 </style>
