@@ -94,37 +94,41 @@ const handleLookup = () => {
 .st_lookup {
   display: flex;
   flex-direction: column;
+  align-items: center; // ✅ 입력 필드 중앙 정렬
   width: 100%;
   max-width: 700px;
   border: 1px solid #007bff;
   box-shadow: $box-shadow;
   border-radius: 30px;
-  padding: 0;
+  padding: 30px 0; // ✅ 여백 설정 (상하만)
+  margin: 0 auto;
+}
+
+.tooltip-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // ✅ input과 tooltip을 정렬
+  width: 100%;
+  margin: 12px auto; // ✅ 간격만 하단에 줌
 }
 
 input {
   width: 100%;
   max-width: 300px;
-  padding: 10px;
+  padding: 10px 12px;
+  margin: 0;
   border: 1px solid #ccc;
   border-radius: 10px;
-  display: flex;
-  margin: 0;
+  font-size: 16px;
+  box-sizing: border-box;
 }
-.tooltip-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px; // 입력칸 사이 간격 설정
-  padding: 0;
-}
-
 .st_reser {
   width: 150px;
-  margin: 10px auto;
+  margin: 20px auto;
   display: inline-block;
   padding: 12px 24px;
   background-color: $main-color;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 16px;
   border-radius: 30px;
   text-align: center;
@@ -202,19 +206,14 @@ input {
 
   .st_lookup {
     border-radius: 16px;
+    width: 90%;
   }
 
   input {
     font-size: 15px;
     padding: 10px 12px;
-    max-width: 100%;
-  }
-
-  button {
     width: 100%;
     max-width: 300px;
-    font-size: 15px;
-    padding: 12px;
   }
 
   .tooltip-container {
@@ -226,6 +225,11 @@ input {
     font-size: 13px;
     padding: 6px 10px;
     left: 4px;
+  }
+  .st_reser {
+    font-size: 15px;
+    padding: 12px 24px;
+    margin-top: 20px;
   }
 }
 
@@ -242,8 +246,8 @@ input {
   }
 
   input {
-    font-size: 14px;
-    padding: 9px 10px;
+    font-size: 15px;
+    padding: 10px 12px;
     justify-content: center;
     align-items: center;
   }
@@ -261,6 +265,11 @@ input {
 
   .tooltip-bottom::before {
     left: 14px;
+  }
+  .st_reser {
+    font-size: 15px;
+    padding: 12px 24px;
+    margin-top: 20px;
   }
 }
 </style>

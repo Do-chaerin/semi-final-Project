@@ -433,7 +433,7 @@ h6 {
 
 .write-btn {
   padding: 8px 16px;
-  margin: 20px 0;
+  margin: 30px 0;
   background-color: $main-color;
   width: 100px;
   color: white;

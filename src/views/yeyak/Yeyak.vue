@@ -284,20 +284,19 @@ img {
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .st_reser {
   width: 150px;
+  margin: 20px auto;
   display: inline-block;
   padding: 12px 24px;
   background-color: $main-color;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 16px;
-  margin: 20px auto;
   border-radius: 30px;
   text-align: center;
   text-decoration: none;
-  transition: background 0.3s;
   border: none;
+  transition: background 0.3s;
 }
 
 .st_reser:hover {
@@ -314,8 +313,9 @@ img {
   }
 
   .st_reser {
-    width: 100%;
     font-size: 16px;
+    padding: 12px 24px;
+    margin-top: 20px;
   }
 
   .st_toggleheader {
@@ -359,9 +359,10 @@ img {
   .st_checkbox label {
     font-size: 13px;
   }
-
   .st_reser {
-    font-size: 15px;
+    font-size: 16px;
+    padding: 12px 24px;
+    margin-top: 20px;
   }
 
   img {
