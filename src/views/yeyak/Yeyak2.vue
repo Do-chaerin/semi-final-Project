@@ -51,10 +51,34 @@ const stopPlaces = ["공항", "동대구역", "숙소", "기타"];
 
 // 가방 정보
 const sizes = reactive([
-  { label: "S사이즈", tag: "기내용 캐리어", count: 0, price: 10000 },
-  { label: "M사이즈", tag: "화물용 캐리어", count: 0, price: 14000 },
-  { label: "L사이즈", tag: "대형 캐리어", count: 0, price: 16000 },
-  { label: "기타사이즈", tag: "표시 외 물품", count: 0, price: 20000 },
+  {
+    label: "S사이즈",
+    tag: "기내용 캐리어",
+    pri: "10,000원",
+    count: 0,
+    price: 10000,
+  },
+  {
+    label: "M사이즈",
+    tag: "화물용 캐리어",
+    pri: "14,000원",
+    count: 0,
+    price: 14000,
+  },
+  {
+    label: "L사이즈",
+    tag: "대형 캐리어",
+    pri: "16,000원",
+    count: 0,
+    price: 16000,
+  },
+  {
+    label: "기타사이즈",
+    tag: "표시 외 물품",
+    pri: "20,000원",
+    count: 0,
+    price: 20000,
+  },
 ]);
 const totalPrice = computed(() =>
   sizes.reduce((sum, item) => sum + item.count * item.price, 0)
@@ -125,7 +149,6 @@ onMounted(() => {
               <option value="018">018</option>
               <option value="019">019</option>
             </select>
-            <span>-</span>
             <input
               type="text"
               :value="formattedPhone"
@@ -207,6 +230,7 @@ onMounted(() => {
               <div class="st_text">
                 <p class="st_label">{{ item.label }}</p>
                 <p class="st_tag">{{ item.tag }}</p>
+                <p class="st_pri">{{ item.pri }}</p>
               </div>
               <div class="st_pm">
                 <div class="st_counter">
@@ -264,9 +288,10 @@ $base-width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   font-family: $font-family;
 }
-
 .yy_title1 {
   display: flex;
   gap: 10px;
@@ -276,7 +301,8 @@ $base-width: 350px;
   justify-content: center; /* 가로 중앙 정렬 */
   padding-bottom: 10px;
   .title_txt1 h1 {
-    font-size: 35px;
+    font-size: 40px;
+    font-family: "omyu_pretty";
   }
 }
 .st_top {
@@ -333,23 +359,25 @@ button {
   display: flex;
   align-items: center;
   gap: 8px;
-  max-width: 350px;
+  width: 100%;
+  max-width: $base-width; // 부모 요소의 너비를 $base-width로 제한
   margin: 10px auto;
 
   select {
-    width: 80px;
+    width: 80px; // 010 선택 부분은 고정 너비
     height: 44px;
     border-radius: 10px;
     padding: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid #b5b5b5;
   }
 
   input {
     flex: 1;
+    width: calc($base-width - 90px); // 80px (select의 너비)만큼 차감
     height: 44px;
     border-radius: 10px;
     padding: 6px 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #b5b5b5;
   }
 
   span {
@@ -544,6 +572,8 @@ button {
 
 .st_reser {
   width: 150px;
+  height: 50px;
+  line-height: 25px;
   margin: 20px auto;
   display: inline-block;
   padding: 12px 24px;
@@ -641,7 +671,9 @@ button {
 
 @media (max-width: 768px) {
   .yy_title1 .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 30px;
+    font-family: "omyu_pretty";
+    text-align: center;
   }
 
   .st_top {
@@ -695,6 +727,9 @@ button {
   }
 
   .st_reser {
+    width: 150px;
+    height: 50px;
+    line-height: 25px;
     font-size: 16px;
     padding: 12px 24px;
     margin-top: 20px;
@@ -716,7 +751,9 @@ button {
 
 @media (max-width: 390px) {
   .yy_title1 .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 30px;
+    font-family: "omyu_pretty";
+    text-align: center;
   }
 
   .st_section-title {
@@ -748,6 +785,9 @@ button {
   }
 
   .st_reser {
+    width: 150px;
+    height: 50px;
+    line-height: 25px;
     font-size: 16px;
     padding: 12px 24px;
     margin-top: 20px;

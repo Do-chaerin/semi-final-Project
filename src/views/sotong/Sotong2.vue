@@ -321,7 +321,8 @@ const closeModal = () => {
   justify-content: center; /* 가로 중앙 정렬 */
   padding-bottom: 10px;
   .title_txt1 h1 {
-    font-size: 35px;
+    font-size: 40px;
+    font-family: "omyu_pretty";
   }
 }
 // 리뷰 배너
@@ -432,8 +433,11 @@ h6 {
 }
 
 .write-btn {
+  width: 150px;
+  height: 50px;
+  line-height: 25px;
   padding: 8px 16px;
-  margin: 30px 0;
+  margin: 40px 0;
   background-color: $main-color;
   width: 100px;
   color: white;
@@ -457,7 +461,15 @@ h6 {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
+button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: $sub-color;
+  color: #fff;
+}
 .form-buttons {
   display: flex;
   gap: 10px;
@@ -514,7 +526,9 @@ h6 {
   }
 
   .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 30px;
+    font-family: "omyu_pretty";
+    text-align: center;
   }
 
   .st_reviewbanner img {
@@ -608,7 +622,9 @@ h6 {
   }
 
   .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 30px;
+    font-family: "omyu_pretty";
+    text-align: center;
   }
 
   .write-btn {

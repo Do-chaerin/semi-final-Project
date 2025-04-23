@@ -1,27 +1,35 @@
 <script setup>
-import { ref, reactive, computed, onMounted } from "vue";
+import { ref, reactive, computed, onMounted, watch, nextTick } from "vue";
 import { useReservationStore } from "@/stores/reservationStore";
 import { useRouter } from "vue-router";
 
 const reservationStore = useReservationStore();
 const router = useRouter();
 
-// 전화번호 처리
-const telPrefix = ref("010");
-const phoneRaw = ref(""); // 숫자만 저장
-const formattedPhone = computed({
-  get() {
-    const value = phoneRaw.value.replace(/\D/g, "");
-
-    // 최대 11자리까지만 처리
-    if (value.length <= 4) return value;
-    if (value.length <= 8) return `${value.slice(0, 4)}-${value.slice(4, 8)}`;
-    return `${value.slice(0, 4)}-${value.slice(4, 8)}-${value.slice(8, 12)}`;
-  },
-  set(val) {
-    phoneRaw.value = val.replace(/\D/g, "").slice(0, 11); // 최대 11자리 제한
-  },
+// 유효성 검사 시 사용
+const isValidPhone = computed(() => {
+  return (
+    middlePhone.value.length >= 3 &&
+    lastPhone.value.length >= 4 &&
+    /^\d+$/.test(middlePhone.value + lastPhone.value)
+  );
 });
+//번호 자동 넘어감
+
+const telPrefix = ref("010");
+const middlePhone = ref("");
+const lastPhone = ref("");
+
+const moveFocus = (event, nextRef) => {
+  if (event.target.value.length >= event.target.maxLength) {
+    nextTick(() => {
+      nextRef?.focus();
+    });
+  }
+};
+
+const middlePhoneRef = ref(null);
+const lastPhoneRef = ref(null);
 
 // 기타 상태
 const name = ref("");
@@ -64,8 +72,9 @@ const formatCurrency = (num) => new Intl.NumberFormat("ko-KR").format(num);
 // 예약 제출
 const submitReservation = () => {
   if (!name.value) return showToast("이름을 입력해주세요", "name");
-  if (!phoneRaw.value || phoneRaw.value.length < 7)
-    return showToast("전화번호를 입력해주세요", "phone");
+
+  if (!isValidPhone.value) return showToast("전화번호를 입력해주세요", "phone");
+
   if (!selectedDate.value) return showToast("날짜를 선택해주세요", "date");
   if (selectedHour.value === "--" || selectedMinute.value === "--")
     return showToast("시간을 선택해주세요", "time");
@@ -75,7 +84,7 @@ const submitReservation = () => {
   const bagCount = sizes.reduce((sum, item) => sum + item.count, 0);
   if (bagCount === 0) return showToast("가방 수량을 선택해주세요", "bag");
 
-  const fullPhone = `${telPrefix.value}${phoneRaw.value}`;
+  const fullPhone = `${telPrefix.value}${middlePhone.value}${lastPhone.value}`;
   reservationStore.setReservation({
     name: name.value,
     phone: fullPhone,
@@ -115,8 +124,33 @@ onMounted(() => {
             {{ toastMessage }}
           </div>
         </div>
-        <div class="tooltip-container">
-          <input type="number" placeholder="전화번호" v-model="phone" />
+        <div class="tooltip-container st_phone-wrapper">
+          <div class="st_phone-group">
+            <select v-model="telPrefix" class="st_phone-select">
+              <option value="010">010</option>
+              <option value="011">011</option>
+              <option value="016">016</option>
+              <option value="017">017</option>
+              <option value="018">018</option>
+              <option value="019">019</option>
+            </select>
+            <span>-</span>
+            <input
+              v-model="middlePhone"
+              maxlength="4"
+              class="st_phone-input"
+              placeholder="1234"
+              ref="middlePhoneRef"
+              @input="moveFocus($event, lastPhoneRef)" />
+            <span>-</span>
+            <input
+              type="text"
+              v-model="lastPhone"
+              maxlength="4"
+              class="st_phone-input"
+              placeholder="5678"
+              ref="lastPhoneRef" />
+          </div>
           <div v-if="toastTarget === 'phone'" class="tooltip-bottom">
             {{ toastMessage }}
           </div>
@@ -251,6 +285,8 @@ $base-width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   font-family: $font-family;
 }
 
@@ -263,7 +299,8 @@ $base-width: 350px;
   justify-content: center; /* 가로 중앙 정렬 */
   padding-bottom: 10px;
   .title_txt1 h1 {
-    font-size: 35px;
+    font-size: 40px;
+    font-family: "omyu_pretty";
   }
 }
 .st_top {
@@ -327,7 +364,32 @@ button {
   flex-direction: column;
   align-items: center;
 }
+.st_phone-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
+.st_phone-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.st_phone-select,
+.st_phone-input {
+  height: 44px;
+  padding: 10px;
+  margin: 8px auto;
+  border: 1px solid #b5b5b5;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 80px;
+}
+
+.st_phone-input {
+  flex: 1;
+}
 .st_date {
   display: flex;
   justify-content: center;
@@ -503,6 +565,8 @@ button {
 
 .st_reser {
   width: 150px;
+  height: 50px;
+  line-height: 25px;
   margin: 20px auto;
   display: inline-block;
   padding: 12px 24px;
@@ -601,7 +665,9 @@ button {
 
 @media (max-width: 768px) {
   .yy_title1 .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 30px;
+    font-family: "omyu_pretty";
+    text-align: center;
   }
 
   .st_top {
@@ -655,6 +721,9 @@ button {
   }
 
   .st_reser {
+    width: 150px;
+    height: 50px;
+    line-height: 25px;
     font-size: 16px;
     padding: 12px 24px;
     margin-top: 20px;
@@ -676,7 +745,9 @@ button {
 
 @media (max-width: 390px) {
   .yy_title1 .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 30px;
+    font-family: "omyu_pretty";
+    text-align: center;
   }
 
   .st_section-title {
@@ -708,6 +779,9 @@ button {
   }
 
   .st_reser {
+    width: 150px;
+    height: 50px;
+    line-height: 25px;
     font-size: 16px;
     padding: 12px 24px;
     margin-top: 20px;

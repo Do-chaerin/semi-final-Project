@@ -37,135 +37,63 @@ const closeModal = () => {
 </script>
 
 <template>
-  <div class="st_wrap">
-    <div class="yy_title1">
-      <!-- 제목 -->
-      <div class="title_txt1">
-        <h1>결제하기</h1>
+  <div class="payment-container">
+    <!-- 왼쪽: 예약 정보 -->
+    <div class="payment-left">
+      <div class="title">
+        <h2>예약 정보</h2>
       </div>
-    </div>
-    <div class="st_check">
-      <table class="st_table">
-        <tbody>
-          <tr>
-            <th>
-              <span class="fix th-name"><span>이</span><span>름</span>:</span>
-            </th>
-            <td>{{ reservationStore.name }}</td>
-          </tr>
-          <tr>
-            <th>
-              <span class="fix th-phone"
-                ><span>전</span><span>화</span><span>번</span
-                ><span>호</span>:</span
-              >
-            </th>
-            <td>{{ reservationStore.phone }}</td>
-          </tr>
-          <tr>
-            <th>
-              <span class="fix th-date"><span>날</span><span>짜</span>:</span>
-            </th>
-            <td>{{ reservationStore.selectedDate }}</td>
-          </tr>
-          <tr>
-            <th>
-              <span class="fix th-time"><span>시</span><span>간</span>:</span>
-            </th>
-            <td>
-              {{ reservationStore.selectedHour }}시
-              {{ reservationStore.selectedMinute }}분
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <span class="fix th-start"><span>출</span><span>발</span>:</span>
-            </th>
-            <td>{{ reservationStore.selectedStart }}</td>
-          </tr>
-          <tr>
-            <th>
-              <span class="fix th-stop"><span>도</span><span>착</span>:</span>
-            </th>
-            <td>{{ reservationStore.selectedStop }}</td>
-          </tr>
-          <tr>
-            <th rowspan="{{ reservationStore.sizes.length }}" class="th-bag">
-              <span class="fix th-bag"
-                ><span>가</span><span>방</span><span>수</span
-                ><span>량</span>:</span
-              >
-            </th>
-            <td>
-              <p v-for="(item, i) in reservationStore.sizes" :key="i">
-                {{ item.label }} ({{ item.count }}개)
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <th>
-              <span class="fix th-total"
-                ><span>총</span><span>금</span><span>액</span>:</span
-              >
-            </th>
-            <td>
-              {{ reservationStore.totalPrice?.toLocaleString() || "0" }}원
-            </td>
-          </tr>
-        </tbody>
+      <table class="info-table">
+        <tr>
+          <th>이름</th>
+          <td>{{ reservationStore.name }}</td>
+        </tr>
+        <!-- 이하 동일 -->
       </table>
     </div>
-    <div class="yy_credit">
-      <label class="credit-option">
-        <input type="radio" value="bank" v-model="selectedPayment" />
-        <span>계좌이체</span>
-      </label>
-      <label class="credit-option">
-        <input type="radio" value="card" v-model="selectedPayment" />
-        <span>카드결제</span>
-      </label>
-      <label class="credit-option">
-        <input type="radio" value="kakao" v-model="selectedPayment" />
-        <span>카카오페이</span>
-      </label>
-      <label class="credit-option">
-        <input type="radio" value="naver" v-model="selectedPayment" />
-        <span>네이버페이</span>
-      </label>
-    </div>
 
-    <div v-if="selectedPayment === 'bank'" class="payment-info">
-      <h4>계좌이체</h4>
-      <p>대구은행 123-456-78910 예금주: 도용달</p>
-    </div>
+    <!-- 오른쪽: 결제 수단 -->
+    <div class="payment-right">
+      <div class="title">
+        <h2>결제 수단</h2>
+      </div>
+      <div class="payment-options">
+        <label
+          v-for="(label, key) in paymentNames"
+          :key="key"
+          class="credit-option">
+          <input type="radio" :value="key" v-model="selectedPayment" />
+          <span>{{ label }}</span>
+        </label>
+      </div>
 
-    <div v-if="selectedPayment === 'card'" class="payment-info">
-      <h4>카드결제</h4>
-      <img src="/images/cr/yy_card.jpg" />
-    </div>
+      <div class="payment-info" v-if="selectedPayment">
+        <h4>{{ paymentNames[selectedPayment] }}</h4>
+        <p v-if="selectedPayment === 'bank'">
+          대구은행 123-456-78910 예금주: 도용달
+        </p>
+        <img
+          v-else
+          :src="`/images/cr/yy_${selectedPayment}.jpg`"
+          alt="결제 이미지" />
+      </div>
 
-    <div v-if="selectedPayment === 'kakao'" class="payment-info">
-      <h4>카카오페이결제</h4>
-      <img src="/images/cr/yy_kakao.jpg" />
+      <button class="st_reser" @click="confirmPayment">결제하기</button>
     </div>
-
-    <div v-if="selectedPayment === 'naver'" class="payment-info">
-      <h4>네이버페이결제</h4>
-      <img src="/images/cr/yy_naver.jpg" />
-    </div>
-    <button class="st_button st_reser" @click="confirmPayment">결제하기</button>
   </div>
-  <!-- 모달창 -->
+
+  <!-- 모달 -->
   <div v-if="showModal" class="modal-overlay">
     <div class="modal-box">
       <p>
         선택하신 <strong>{{ paymentNames[selectedPayment] }}</strong
-        >로 결제가 되었습니다.
+        >로 결제가 완료되었습니다.
       </p>
       <button @click="closeModal" class="st_reser">확인</button>
     </div>
   </div>
 </template>
+
 <style lang="scss" scoped>
 @use "@/assets/Main.scss" as *;
 @use "@/assets/_Variables.scss" as *;
@@ -178,9 +106,12 @@ const closeModal = () => {
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   font-family: $font-family;
+  height: 100vh;
 }
 .yy_title1 {
   display: flex;
@@ -191,85 +122,70 @@ const closeModal = () => {
   justify-content: center; /* 가로 중앙 정렬 */
   padding-bottom: 10px;
   .title_txt1 h1 {
-    font-size: 35px;
+    font-size: 40px;
+    font-family: "omyu_pretty";
   }
 }
-.st_check {
-  width: 100%;
-  padding: 20px;
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #007bff;
-  box-shadow: $box-shadow;
+.st_wrap {
+  max-width: 720px;
+  margin: 80px auto;
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 16px;
+  font-family: "Pretendard", sans-serif;
+  color: #222;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
-.st_table {
-  width: 50%;
-  margin: 0 auto; /* 수평 가운데 정렬 */
-  display: flex; /* block으로 강제 전환 */
-  border-collapse: collapse;
-  justify-content: center;
-  table-layout: fixed;
+
+.yy_title1 .title_txt1 h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #03c75a;
+  margin-bottom: 20px;
+}
+
+.st_check {
+  background: #f8f8f8;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  padding: 24px;
+  margin-bottom: 30px;
 }
 
 .st_table th,
 .st_table td {
-  border: none; /* 선 제거 */
-  padding: 4px 6px; /* 여백 좁게 */
-  vertical-align: middle;
+  padding: 14px 10px;
+  border-bottom: 1px solid #eaeaea;
+  font-size: 15px;
 }
 
-/* th: 작고 중앙 정렬 */
 .st_table th {
-  font-weight: bold;
-  width: 80px;
-  text-align: center;
-  white-space: nowrap;
-  font-weight: bold;
-}
-
-/* td: 왼쪽 정렬 */
-.st_table td {
+  color: #555;
+  font-weight: 600;
+  width: 100px;
   text-align: left;
 }
-/* ✅ 가방수량 th만 위로 정렬 */
-.st_table th.th-bag {
-  vertical-align: top !important;
-}
-/* 라벨 span: 양끝 균등 정렬 */
-.fix {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  width: 100%;
-  gap: 0.1em;
-  justify-items: center;
-}
 
-.fix span {
-  display: inline-block;
+.st_table td {
+  color: #111;
 }
 
 .yy_credit {
-  display: flex;
-  gap: 1rem;
-  margin: 15px auto;
-  padding: 20px auto;
-  border: 1px solid #007bff;
-  box-shadow: $box-shadow;
-  width: 100%;
-  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 30px 0;
 }
+
 .credit-option {
-  width: calc(100% / 4);
-  padding: 15px 10px;
-  display: flex;
-  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  text-align: center;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  font-size: 16px;
-  gap: 0.5rem;
+  padding: 12px;
 }
 
 .credit-option input[type="radio"] {
@@ -277,43 +193,31 @@ const closeModal = () => {
 }
 
 .credit-option span {
-  position: relative;
-  padding-left: 28px; /* 원형 체크박스를 위한 여백 */
-  line-height: 1.5;
-  display: inline-flex;
-  align-items: center; /* span 내부 요소 정렬 */
-  height: 24px; /* 체크 원과 동일한 높이 */
-}
-
-.credit-option span::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 10px;
-  height: 10px;
-  border: 1px solid #aaa;
-  border-radius: 50%;
-  background-color: #fff;
-}
-
-.credit-option input[type="radio"]:checked + span::before {
-  border-color: #007bff;
-  background-color: #007bff;
+  color: #333;
 }
 
 .credit-option input[type="radio"]:checked + span {
-  font-weight: bold;
-  color: #007bff;
+  color: #03c75a;
+  font-weight: 700;
 }
+
 .payment-info {
+  border: 1px solid #03c75a;
+  background-color: #e9f9f0;
   padding: 1rem;
-  background: #f5f5f5;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  transition: all 0.3s ease;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-bottom: 20px;
+  text-align: left;
 }
+
+.payment-info img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
 .st_button {
   display: flex;
   gap: 10px;
@@ -324,6 +228,8 @@ const closeModal = () => {
 
 .st_reser {
   width: 150px;
+  height: 50px;
+  line-height: 25px;
   margin: 20px auto;
   display: inline-block;
   padding: 12px 24px;
@@ -368,10 +274,12 @@ const closeModal = () => {
   .st_wrap {
     margin: 50px auto;
     padding: 0 16px;
+    justify-content: center;
   }
 
   .yy_title1 .title_txt1 h1 {
-    font-size: 25px;
+    font-size: 30px;
+    font-family: "omyu_pretty";
     text-align: center;
   }
 
@@ -434,6 +342,9 @@ const closeModal = () => {
   }
 
   .st_reser {
+    width: 150px;
+    height: 50px;
+    line-height: 25px;
     font-size: 16px;
     padding: 12px 24px;
     margin-top: 20px;
@@ -449,6 +360,7 @@ const closeModal = () => {
   .st_wrap {
     margin: 50px auto;
     padding: 0 16px;
+    justify-content: center;
   }
 
   .st_table {
@@ -488,11 +400,16 @@ const closeModal = () => {
     height: auto;
     margin-top: 8px;
   }
-  .title_txt1 h1 {
-    font-size: 25px;
+  .yy_title1 .title_txt1 h1 {
+    font-size: 30px;
+    font-family: "omyu_pretty";
+    text-align: center;
   }
 
   .st_reser {
+    width: 150px;
+    height: 50px;
+    line-height: 25px;
     font-size: 16px;
     padding: 12px 24px;
     margin-top: 20px;
