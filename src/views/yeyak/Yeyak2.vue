@@ -463,6 +463,12 @@ button {
     }
   }
 }
+.st_pri{
+  font-size: 15px;
+  margin: 5px 0;
+  color: #ff0000;
+
+}
 
 .tooltip-container {
   position: relative; // 중요: 에러 메시지가 해당 영역에 종속되게

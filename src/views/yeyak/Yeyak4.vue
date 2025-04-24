@@ -1,18 +1,17 @@
 <script setup>
-import { useReservationStore } from "../../stores/reservationStore";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { useReservationStore } from "@/stores/reservationStore";
 
+const reservationStore = useReservationStore();
 const selectedPayment = ref("");
 const showModal = ref(false);
-const reservationStore = useReservationStore();
 const router = useRouter();
 
 const paymentNames = {
   bank: "계좌이체",
   card: "카드결제",
-  kakao: "카카오페이",
-  naver: "네이버페이",
+  phone: "휴대폰이체",
 };
 
 const confirmPayment = () => {
@@ -20,76 +19,108 @@ const confirmPayment = () => {
     alert("결제 수단을 선택해주세요.");
     return;
   }
-
-  showModal.value = true; // 자동 이동 X
+  showModal.value = true;
 };
 
 const closeModal = () => {
   showModal.value = false;
-
   router.push({
     path: "/yeyak5",
-    query: {
-      payment: selectedPayment.value,
-    },
+    query: { payment: selectedPayment.value },
   });
 };
 </script>
 
 <template>
-  <div class="payment-container">
-    <!-- 왼쪽: 예약 정보 -->
-    <div class="payment-left">
-      <div class="title">
-        <h2>예약 정보</h2>
-      </div>
-      <table class="info-table">
-        <tr>
-          <th>이름</th>
-          <td>{{ reservationStore.name }}</td>
-        </tr>
-        <!-- 이하 동일 -->
-      </table>
-    </div>
+  <div class="wrap">
+    <div class="total">
+      <div class="payment-page">
+        <div class="yy_title1">
+          <div class="title_txt1">
+            <h1>결제하기</h1>
+          </div>
+        </div>
+        <!-- 결제 정보 -->
+        <div class="payment-info-box">
+          <div class="info-row">
+            <span class="label">이름</span>
+            <span class="value">{{ reservationStore.name }}</span>
+          </div>
+          <div class="info-row">
+            <span class="label">날짜</span>
+            <span class="value">{{ reservationStore.selectedDate }}</span>
+          </div>
+          <div class="info-row">
+            <span class="label">예약시간</span>
+            <span class="value">
+              {{ reservationStore.selectedHour }}시
+              {{ reservationStore.selectedMinute }}분</span
+            >
+          </div>
+          <div class="info-row">
+            <span class="label">출발지</span>
+            <span class="value">{{ reservationStore.selectedStart }}</span>
+          </div>
+          <div class="info-row">
+            <span class="label">도착지</span>
+            <span class="value">{{ reservationStore.selectedStop }}</span>
+          </div>
+          <div class="info-row">
+            <span class="label">가방 종류 및 수량</span>
+            <span class="value">
+              <p v-for="(item, i) in reservationStore.sizes" :key="i">
+                {{ item.label }} ({{ item.count }}개)
+              </p></span
+            >
+          </div>
+          <div class="info-row">
+            <span class="label">결제 금액</span>
+            <span class="value red">{{ reservationStore.totalPrice }}</span>
+          </div>
+        </div>
 
-    <!-- 오른쪽: 결제 수단 -->
-    <div class="payment-right">
-      <div class="title">
-        <h2>결제 수단</h2>
-      </div>
-      <div class="payment-options">
-        <label
-          v-for="(label, key) in paymentNames"
-          :key="key"
-          class="credit-option">
-          <input type="radio" :value="key" v-model="selectedPayment" />
-          <span>{{ label }}</span>
-        </label>
+        <!-- 결제 수단 -->
+        <div class="payment-section">
+          <h3>결제 수단</h3>
+          <div class="payment-methods">
+            <label
+              v-for="(label, key) in paymentNames"
+              :key="key"
+              class="method-btn">
+              <input type="radio" :value="key" v-model="selectedPayment" />
+              <span>{{ label }}</span>
+            </label>
+          </div>
+          <div class="easy-payments">
+            <h3 class="payment-section">간편결제</h3>
+            <label class="easy-option">
+              <input type="radio" value="toss" v-model="selectedPayment" />
+              <img src="/images/cr/yy_toss.png" alt="토스" />
+            </label>
+            <label class="easy-option">
+              <input type="radio" value="naver" v-model="selectedPayment" />
+              <img src="/images/cr/yy_naver.png" alt="네이버페이" />
+            </label>
+            <label class="easy-option">
+              <input type="radio" value="kakao" v-model="selectedPayment" />
+              <img src="/images/cr/yy_kakao.png" alt="카카오페이" />
+            </label>
+          </div>
+
+          <button class="st_reser" @click="confirmPayment">결제완료</button>
+        </div>
       </div>
 
-      <div class="payment-info" v-if="selectedPayment">
-        <h4>{{ paymentNames[selectedPayment] }}</h4>
-        <p v-if="selectedPayment === 'bank'">
-          대구은행 123-456-78910 예금주: 도용달
-        </p>
-        <img
-          v-else
-          :src="`/images/cr/yy_${selectedPayment}.jpg`"
-          alt="결제 이미지" />
+      <!-- 모달 -->
+      <div v-if="showModal" class="modal-overlay">
+        <div class="modal-box">
+          <p>
+            선택하신 <strong>{{ paymentNames[selectedPayment] }}</strong
+            >로 결제가 완료되었습니다.
+          </p>
+          <button @click="closeModal" class="st_reser">확인</button>
+        </div>
       </div>
-
-      <button class="st_reser" @click="confirmPayment">결제하기</button>
-    </div>
-  </div>
-
-  <!-- 모달 -->
-  <div v-if="showModal" class="modal-overlay">
-    <div class="modal-box">
-      <p>
-        선택하신 <strong>{{ paymentNames[selectedPayment] }}</strong
-        >로 결제가 완료되었습니다.
-      </p>
-      <button @click="closeModal" class="st_reser">확인</button>
     </div>
   </div>
 </template>
@@ -98,7 +129,7 @@ const closeModal = () => {
 @use "@/assets/Main.scss" as *;
 @use "@/assets/_Variables.scss" as *;
 
-.st_wrap {
+.wrap {
   width: 100%;
   max-width: 700px;
   margin-top: 100px;
@@ -113,117 +144,164 @@ const closeModal = () => {
   font-family: $font-family;
   height: 100vh;
 }
+.total {
+  width: 90%;
+  padding: 20px;
+  border: 1px solid #007bff;
+  box-shadow: $box-shadow;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .yy_title1 {
   display: flex;
   gap: 10px;
-  line-height: 40px;
-  flex-wrap: wrap; /* 넘치면 자동 줄바꿈 */
-  align-items: center; /* 세로 중앙 정렬 */
-  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center;
+  justify-content: center;
   padding-bottom: 10px;
+  margin-bottom: 10px;
   .title_txt1 h1 {
     font-size: 40px;
     font-family: "omyu_pretty";
   }
 }
-.st_wrap {
-  max-width: 720px;
-  margin: 80px auto;
-  padding: 32px;
-  background-color: #fff;
-  border-radius: 16px;
+
+.payment-page {
+  width: 90%;
+  padding: 20px;
+  color: #333;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-page {
+  max-width: 700px;
+  margin: 40px auto;
   font-family: "Pretendard", sans-serif;
-  color: #222;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-}
-
-.yy_title1 .title_txt1 h1 {
-  font-size: 30px;
-  font-weight: 700;
-  color: #03c75a;
-  margin-bottom: 20px;
-}
-
-.st_check {
-  background: #f8f8f8;
-  border-radius: 12px;
-  border: 1px solid #e5e5e5;
-  padding: 24px;
-  margin-bottom: 30px;
-}
-
-.st_table th,
-.st_table td {
-  padding: 14px 10px;
-  border-bottom: 1px solid #eaeaea;
-  font-size: 15px;
-}
-
-.st_table th {
-  color: #555;
-  font-weight: 600;
-  width: 100px;
-  text-align: left;
-}
-
-.st_table td {
-  color: #111;
-}
-
-.yy_credit {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-  margin: 30px 0;
-}
-
-.credit-option {
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  background: #fff;
-  text-align: center;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  padding: 12px;
-}
-
-.credit-option input[type="radio"] {
-  display: none;
-}
-
-.credit-option span {
+  padding: 20px;
   color: #333;
 }
 
-.credit-option input[type="radio"]:checked + span {
-  color: #03c75a;
-  font-weight: 700;
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 24px;
 }
 
-.payment-info {
-  border: 1px solid #03c75a;
-  background-color: #e9f9f0;
-  padding: 1rem;
-  border-radius: 10px;
-  font-size: 15px;
-  margin-bottom: 20px;
-  text-align: left;
+.payment-info-box {
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #f8f9fa;
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+
+    .label {
+      font-weight: 500;
+      color: #666;
+    }
+
+    .value {
+      font-weight: 600;
+    }
+
+    &.total .value {
+      color: #ff3b30;
+      font-weight: 700;
+    }
+  }
 }
 
-.payment-info img {
-  width: 100%;
-  max-width: 420px;
-  border-radius: 8px;
-  margin-top: 10px;
+.payment-section {
+  text-align: center;
+}
+h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: inline-block;
 }
 
-.st_button {
+.payment-methods {
   display: flex;
+  justify-content: space-between;
   gap: 10px;
-  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.method-btn {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  padding: 10px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 48%;
+  text-align: center;
+  transition: all 0.2s;
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  span {
+    color: #333;
+  }
+
+  input[type="radio"]:checked + span {
+    color: #03c75a;
+    font-weight: 700;
+  }
+}
+
+.easy-payments {
+  display: flex;
   justify-content: center;
-  border: none;
+  align-items: center;
+  text-align: center;
+  gap: 16px; // 버튼 사이 간격
+  margin: 20px 0;
+  padding: 2px 0;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  width: 100%;
+  transition: all 0.2s;
+}
+.payment-section h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 5px auto;
+  display: block;
+}
+.easy-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 5px;
+  transition: border-color 0.2s ease;
+  cursor: pointer;
+
+  input[type="radio"] {
+    display: block;
+  }
+
+  img {
+    width: 75px;
+    height: auto;
+    display: block;
+  }
 }
 
 .st_reser {
@@ -242,177 +320,32 @@ const closeModal = () => {
   border: none;
   transition: background 0.3s;
 }
-
 .st_reser:hover {
   background-color: $hover;
 }
-// 모달
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
   z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .modal-box {
-  background: white;
-  padding: 2rem 2rem;
+  background: #fff;
+  padding: 2rem;
   border-radius: 12px;
-  font-size: 18px;
-  font-weight: 500;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   text-align: center;
-}
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
-@media screen and (max-width: 768px) {
-  .st_wrap {
-    margin: 50px auto;
-    padding: 0 16px;
-    justify-content: center;
-  }
-
-  .yy_title1 .title_txt1 h1 {
-    font-size: 30px;
-    font-family: "omyu_pretty";
-    text-align: center;
-  }
-
-  .st_check {
-    padding: 15px;
-    width: 100%;
-  }
-
-  .st_table {
-    width: 100%;
-    table-layout: fixed; // ✅ 비율 유지
-    border-collapse: collapse;
-    margin: 0 auto;
-  }
-
-  .st_table th,
-  .st_table td {
-    padding: 8px;
-    font-size: 15px;
-    word-break: keep-all;
-    vertical-align: middle;
-    text-align: left; // ✅ 모바일에서도 읽기 쉽게
-  }
-
-  .st_table th {
-    width: 100px; // ✅ th는 고정폭
-    font-weight: bold;
-    white-space: nowrap;
-  }
-
-  .st_table td {
-    width: auto; // ✅ td는 남은 공간
-  }
-
-  .st_table th.th-bag {
-    vertical-align: top !important;
-  }
-
-  .yy_credit {
-    align-items: stretch;
-    gap: 8px; // ✅ 세로 간격 줄이기
-    padding: 10px; // ✅ 전체 여백 줄이기 (기존 padding이 있다면 확인)
-  }
-
-  .credit-option {
-    width: calc(100% / 4);
-    font-size: 15px;
-    padding: 6px 10px; // ✅ 기존보다 작게
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; // ✅ space-between이 아니라 정렬 왼쪽
-    border-radius: 8px;
-  }
-
-  .payment-info {
-    font-size: 15px;
-    padding: 8px 12px; // ✅ padding 줄이기
-    margin-top: 10px; // ✅ 위아래 간격 확인
-    line-height: 1.4;
-  }
-
-  .st_reser {
-    width: 150px;
-    height: 50px;
-    line-height: 25px;
-    font-size: 16px;
-    padding: 12px 24px;
-    margin-top: 20px;
-  }
-
-  .modal-box {
-    font-size: 16px;
-    width: 90%;
-  }
-}
-
-@media (max-width: 390px) {
-  .st_wrap {
-    margin: 50px auto;
-    padding: 0 16px;
-    justify-content: center;
-  }
-
-  .st_table {
-    width: 90%;
-    font-size: 15px;
-    th,
-    td {
-      padding: 6px;
-    }
-  }
-  .yy_credit {
-    display: flex;
-    flex-wrap: wrap; // ✅ 줄바꿈 허용
-    justify-content: space-between;
-    gap: 10px;
-  }
-
-  .credit-option {
-    width: calc(50% - 5px); // ✅ 2개씩 정렬 (gap 고려해서)
-    font-size: 15px;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    border-radius: 8px;
-    box-sizing: border-box; // ✅ padding 포함한 너비 계산
-  }
-
-  .payment-info {
-    font-size: 15px;
-    padding: 10px;
-    margin: 10px;
-  }
-  .payment-info img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    margin-top: 8px;
-  }
-  .yy_title1 .title_txt1 h1 {
-    font-size: 30px;
-    font-family: "omyu_pretty";
-    text-align: center;
-  }
-
-  .st_reser {
-    width: 150px;
-    height: 50px;
-    line-height: 25px;
-    font-size: 16px;
-    padding: 12px 24px;
-    margin-top: 20px;
+  p {
+    font-size: 18px;
+    margin-bottom: 20px;
   }
 }
 </style>
